@@ -1,0 +1,17 @@
+
+
+.friend-wrapper{
+display: flex;
+width: 10rem;
+height: 5rem;
+gap: 1rem;
+max-width: max-content;
+justify-content: center;
+align-items: center;
+
+}
+.friend-image{
+    width: 4rem;
+    height: 4rem;
+    background-color:red;
+}
