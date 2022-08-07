@@ -1,8 +1,8 @@
 import React from "react";
 import "./main.css";
-import Toolbar from "../toolbar/toolbar.jsx";
-import Friend from "../friend/friend.jsx";
-import Triangle from "../triangle/triangle.jsx";
+import Toolbar from "../../components/toolbar/toolbar";
+import Friend from "../../components/friend/friend";
+import Triangle from "../../components/triangle/triangle";
 
 function Main() {
   return (

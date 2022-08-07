@@ -1,0 +1,36 @@
+.rightBox {
+  display: grid;
+  grid-template-columns: 80px 80px 80px 80px;
+  grid-template-rows: 60px 80px 80px;
+  gap: 5px;
+}
+
+.item2 {
+  grid-column: 2 / span 3;
+  font-size: 0.8em;
+}
+h3 {
+  text-align: left;
+}
+
+.item-13-right {
+  display: flex;
+  flex-direction: row;
+  width: 23em;
+  height: 2em;
+  gap: 0.8em;
+  justify-content: center;
+
+  /* grid-column: 1 / span 4; */
+}
+.item-video {
+  border: 1px solid black;
+}
+
+.item1 {
+  background-image: url(../../../assets/likeIcon.png);
+
+  width: 40px;
+  height: 40px;
+  justify-self: end;
+}

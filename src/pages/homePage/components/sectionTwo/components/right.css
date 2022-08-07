@@ -1,0 +1,49 @@
+.container-right {
+  position: relative;
+  background-size: contain;
+  width: 60%;
+  height: 18em;
+  padding: 40px;
+  /* border: 1px solid black; */
+  margin: auto;
+  margin-right: 200px;
+  background-color: rgb(230, 232, 211);
+  overflow: hidden;
+  text-align: justify;
+  line-height: 1.2;
+}
+
+.text-right {
+  display: flex;
+}
+
+.img-right {
+  background-image: url(../../../assets/bookIcon.png);
+  width: 40px;
+  height: 40px;
+}
+
+.title-right h3 {
+  position: relative;
+  left: 50px;
+  bottom: 45px;
+  line-height: 1;
+  padding-top: 4px;
+}
+.bottom-right {
+  display: flex;
+  flex-direction: row;
+  padding-top: 20px;
+  width: 50%;
+  justify-content: space-around;
+  align-content: flex-end;
+  margin-left: 6.5em;
+  margin: auto;
+}
+
+@media only screen and (max-width: 750px) {
+  .container-right {
+    width: 70%;
+    font-size: larger;
+  }
+}
