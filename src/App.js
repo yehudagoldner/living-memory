@@ -6,11 +6,10 @@ import Main from "./components/main/main.jsx";
 function App() {
   return (
     <div className="App">
-      <Main />
-   
-    <BrowserRouter>
-      <Navbar />;
-    </BrowserRouter>
+      <Main />   
+      <BrowserRouter>
+        <Navbar />;
+      </BrowserRouter>
     </div>
   );
 }
