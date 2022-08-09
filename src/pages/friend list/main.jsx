@@ -1,7 +1,7 @@
 import React from "react";
 import "./main.css";
 import Toolbar from "../../components/toolbar/toolbar";
-import Friend from "../../components/friend/Friend";
+import Friend from "../../components/friend/friend";
 import Triangle from "../../components/triangle/triangle";
 
 function Main() {

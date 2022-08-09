@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React from "react";
 import Navbar from "../src/components/Navbar/Navbar";
 import Header from "../src/components/Header/Header";
@@ -6,10 +7,14 @@ import PopUp from "../src/components/PopUp/PopUp";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import Main from "./pages/friend list/Main";
 import Footer from "./components/Footer/Footer";
+
+import { Switch, Route, Routes, Navigate } from "react-router-dom";
+
 import "./App.css";
 // import EmailButton from "./components/EmailButton/EmailButton";
 import TermsOfUse from "./components/TermsOfUse/TermsOfUse";
 
+<<<<<<< HEAD
 function App() {
   return (
     <div className="App">
@@ -33,6 +38,15 @@ function App() {
       </BrowserRouter>
     </div>
   );
-}
+};
+
+// export default App
+//   return (
+//     <div className="App">
+//       <DrawerAppBar />
+//       <HomePage />
+//     </div>
+//   );
+// }
 
 export default App;
