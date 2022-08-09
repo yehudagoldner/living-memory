@@ -1,30 +1,51 @@
 .sectionOne-container {
-  height: 36em;
   background-color: #e7e9d4;
-  background-image: url(../../assets/Picture1-background.jpg);
+  min-height: 350px;
+  width: 100%;
+  gap: 2em;
+  flex-direction: row-reverse;
+  /* background-image: url(../../assets/Picture1-background.jpg); */
   background-position: center center;
   background-size: contain;
   background-repeat: no-repeat;
-
+  /* border: 1px solid red; */
   font-size: 1.1em;
+  display: flex;
   /* min-width: 1150px; */
 
   /* background-size: cover; */
+}
+
+.bio-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  text-align: justify;
+}
+
+.image-box {
+  width: 548px;
+  position: relative;
+  align-self: stretch;
+}
+
+.image-box .flowers {
+  bottom: 0;
+  position: absolute;
+  z-index: 1;
+}
+.image-box .profile-pics {
+  position: absolute;
+  width: 120px;
+  bottom: 71px;
+  right: 68px;
+  z-index: 2;
 }
 
 .years-container {
   padding-top: 3em;
   display: flex;
   justify-content: space-between;
-}
-
-.bio-container {
-  position: absolute;
-  right: 15em;
-  width: 30%;
-  display: flex;
-  flex-direction: column;
-  text-align: justify;
 }
 
 .text-container {
@@ -68,8 +89,6 @@
 
 @media only screen and (max-width: 1250px) {
   .bio-container {
-    width: 50%;
-    right: 20px;
     font-size: 1.1em;
     line-height: 1.6;
   }
@@ -77,8 +96,6 @@
 
 @media only screen and (max-width: 1050px) {
   .bio-container {
-    position: relative;
-    left: 550px;
     font-size: 1.2em;
 
     /* line-height: 1.6; */
@@ -94,17 +111,8 @@
 @media only screen and (max-width: 950px) {
   .bio-container {
     /* display: none; */
-.scroller-container {
+/* .scroller-container {
   position: absolute;
-  top: 39.5em;
-  left: 16.7em;
-}
-
-.image-box img {
-  width: 180px;
-  height: 250px;
-
-  position: relative;
-  left: 317px;
-  top: 137px;
-}
+  top: 90%;
+  left: 16%;
+} */
