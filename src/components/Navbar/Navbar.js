@@ -1,148 +1,3 @@
-// import * as React from "react";
-// import { useState } from "react";
-// import AppBar from "@mui/material/AppBar";
-// import Box from "@mui/material/Box";
-// import Toolbar from "@mui/material/Toolbar";
-// import IconButton from "@mui/material/IconButton";
-// import Typography from "@mui/material/Typography";
-// import Menu from "@mui/material/Menu";
-// import MenuIcon from "@mui/icons-material/Menu";
-// import Container from "@mui/material/Container";
-// import Avatar from "@mui/material/Avatar";
-// import Button from "@mui/material/Button";
-// import Tooltip from "@mui/material/Tooltip";
-// import MenuItem from "@mui/material/MenuItem";
-// import AdbIcon from "@mui/icons-material/Adb";
-// import { ThemeProvider, createTheme } from "@mui/material/styles";
-// import ShareIcon from "@mui/icons-material/Share";
-// import ExtensionIcon from "@mui/icons-material/Extension";
-// import PeopleIcon from "@mui/icons-material/People";
-// // import { Stack } from "@mui/material";
-// import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
-
-// const settings = ["Profile", "Account", "Dashboard", "Logout"];
-
-// const ResponsiveAppBar = () => {
-//   const [anchorElNav, setAnchorElNav] = useState(null);
-//   const [anchorElUser, setAnchorElUser] = useState(null);
-
-//   const handleOpenNavMenu = (event) => {
-//     setAnchorElNav(event.currentTarget);
-//   };
-//   const handleOpenUserMenu = (event) => {
-//     setAnchorElUser(event.currentTarget);
-//   };
-
-//   const handleCloseNavMenu = () => {
-//     setAnchorElNav(null);
-//   };
-
-//   const handleCloseUserMenu = () => {
-//     setAnchorElUser(null);
-//   };
-
-//   const darkTheme = createTheme({
-//     palette: {
-//       mode: "dark",
-//       primary: {
-//         main: "#1A1A1A",
-//       },
-//     },
-//     typography: {
-//       button: {
-//         textTransform: "none",
-//       },
-//       fontSize: 12,
-//     },
-//   });
-
-//   return (
-//     <ThemeProvider theme={darkTheme}>
-//       <AppBar position="static" color="primary" enableColorOnDark>
-//         <Container maxWidth="xl">
-//           <Toolbar disableGutters>
-//             <Box
-//               sx={{
-//                 width: { xs: "180px", lg: "175px" },
-//                 fontSize: { lg: "15px", xs: "8px" },
-//                 ml: "83px",
-//               }}
-//             >
-//               <Typography
-//                 variant="h6"
-//                 noWrap
-//                 component="a"
-//                 href="/"
-//                 sx={{
-//                   mb: "-8px",
-//                   mr: 2,
-//                   display: { xs: "flex", md: "flex" },
-//                   fontFamily: "monospace",
-//                   fontWeight: 700,
-//                   color: "inherit",
-//                   textDecoration: "none",
-//                 }}
-//               >
-//                 Create a Memorial
-//               </Typography>
-
-//               <Typography
-//                 sx={{ color: "#D9D9D9", display: { xs: "flex", md: "flex" } }}
-//               >
-//                 Facebook one click import
-//               </Typography>
-
-//             </Box>
-//             <ArrowForwardIosIcon
-//               fontSize="large"
-//               sx={{
-//                 display: { xs: "flex", md: "flex" },
-//                 ml: "-18px",
-//                 fontSize: "36px",
-//               }}
-//             />
-
-//             <Box
-//               sx={{
-//                 display: "flex",
-//                 justifyContent: "center",
-//                 flexGrow: 1,
-//                 display: { xs: "flex", md: "flex" },
-//               }}
-//             >
-//               <Button
-//                 key={"value"}
-//                 onClick={handleCloseNavMenu}
-//                 sx={{ my: 2, color: "white", display: "flex" }}
-//               >
-//                 <PeopleIcon sx={{ mr: 1 }} />
-//                 Invite friends
-//               </Button>
-//               <Button
-//                 key={"value"}
-//                 onClick={handleCloseNavMenu}
-//                 sx={{ my: 2, color: "white", display: "flex" }}
-//               >
-//                 <ExtensionIcon sx={{ mr: 1 }} />
-//                 Contributes
-//               </Button>
-//               <Button
-//                 key={"value"}
-//                 onClick={handleCloseNavMenu}
-//                 sx={{ my: 2, color: "white", display: "flex" }}
-//               >
-//                 <ShareIcon sx={{ mr: 1 }} />
-//                 Share
-//               </Button>
-//             </Box>
-//           </Toolbar>
-//         </Container>
-//       </AppBar>
-//     </ThemeProvider>
-//   );
-// };
-// export default ResponsiveAppBar;
-
 import * as React from "react";
 import { useState } from "react";
 import PropTypes from "prop-types";
@@ -197,13 +52,13 @@ function DrawerAppBar(props) {
     },
   });
 
-  const darkThemeSec = createTheme({
-    palette: {
-      primary: {
-        main: "#F5F5DC",
-      },
-    },
-  });
+  // const darkThemeSec = createTheme({
+  //   palette: {
+  //     primary: {
+  //       main: "#F5F5DC",
+  //     },
+  //   },
+  // });
 
   const drawer = (
     <Box onClick={handleDrawerToggle} sx={{ textAlign: "center", md: "block" }}>
@@ -213,8 +68,12 @@ function DrawerAppBar(props) {
       <Divider />
       <List>
         <Link to={"/invite_friends"}>
-          <ListItem key="invite-friends" disablePadding>
-            <ListItemButton sx={{ textAlign: "center" }}>
+          <ListItem
+            sx={{ textTransform: "none" }}
+            key="invite-friends"
+            disablePadding
+          >
+            <ListItemButton sx={{ textAlign: "center", textTransform: "none" }}>
               <PeopleIcon sx={{ mr: 1 }} /> Invite friends
             </ListItemButton>
           </ListItem>
@@ -311,7 +170,7 @@ function DrawerAppBar(props) {
   return (
     <React.Fragment>
       <ThemeProvider theme={darkTheme}>
-        <Box sx={{ display: "flex", Height: "50%" }}>
+        <Box sx={{ display: "flex" }}>
           <AppBar component="nav">
             <Toolbar>
               <IconButton
@@ -325,16 +184,16 @@ function DrawerAppBar(props) {
                 <MenuIcon />
               </IconButton>
               <Link to="/">
-                <Button
+                {/* <Button
                   key="logo"
                   sx={{ minHeight: 0, minWidth: 0, padding: 0 }}
-                >
-                  <img
-                    src={LivingMemoryImage}
-                    alt="living-memory"
-                    className="living-memory-img"
-                  />
-                </Button>
+                > */}
+                <img
+                  src={LivingMemoryImage}
+                  alt="living-memory"
+                  className="living-memory-img"
+                />
+                {/* </Button> */}
               </Link>
               <Box>
                 <Typography
@@ -430,219 +289,6 @@ function DrawerAppBar(props) {
           <Box component="main" sx={{ p: 3 }}>
             <Toolbar />
           </Box>
-        </Box>
-      </ThemeProvider>
-
-      <ThemeProvider theme={darkThemeSec}>
-        <Box sx={{ mt: "-34px", flexGrow: 1 }}>
-          <AppBar position="static">
-            <StyledToolbar>
-              <Box sx={{ ml: "80px" }}>
-                <Typography
-                  variant="h4"
-                  fontWeight="bold"
-                  noWrap
-                  component="div"
-                  sx={{
-                    flexGrow: 1,
-                    alignSelf: "flex-end",
-                    mt: "20px",
-                    mb: "10px",
-                  }}
-                >
-                  Nicholas Drake 1948-1974
-                </Typography>
-                <Typography
-                  variant="h6"
-                  noWrap
-                  component="div"
-                  sx={{
-                    flexGrow: 1,
-                    alignSelf: "flex-end",
-                    lineHeight: "130%",
-                    fontSize: "17px",
-                  }}
-                >
-                  Gone yet not forgotten, although we are apart, your <br />
-                  memory lives within us, forever in our hearts.
-                </Typography>
-              </Box>
-              {/* <IconButton size="small" aria-label="search" color="inherit"> */}
-              <Box
-                sx={{
-                  flexGrow: 1,
-                  justifyContent: "center",
-                  display: { xs: "none", lg: "flex" },
-                  flexWrap: "wrap",
-                }}
-              >
-                <List sx={{ display: "flex", mt: "29px" }}>
-                  <ListItem
-                    key="timeline"
-                    disablePadding
-                    sx={{ mr: "15px", minWidth: "15px" }}
-                  >
-                    <Link to="/timeline">
-                      <ListItemButton
-                        sx={{
-                          textAlign: "center",
-                          flexDirection: "column",
-                          backgroundColor: "#87CEEB",
-                          "&:hover": {
-                            backgroundColor: "#B6D0E2",
-                          },
-                        }}
-                      >
-                        <ViewTimelineSharpIcon />
-                        <Typography sx={{ display: "flex" }}>
-                          Timeline
-                        </Typography>
-                      </ListItemButton>
-                    </Link>
-                  </ListItem>
-
-                  <ListItem
-                    key="book-view"
-                    disablePadding
-                    sx={{ mr: "15px", minWidth: "15px" }}
-                  >
-                    <Link to="/book_view">
-                      <ListItemButton
-                        sx={{
-                          textAlign: "center",
-                          flexDirection: "column",
-                          backgroundColor: "#87CEEB",
-                          "&:hover": {
-                            backgroundColor: "#B6D0E2",
-                          },
-                        }}
-                      >
-                        <MenuBookSharpIcon />
-                        <Typography>BookView</Typography>
-                      </ListItemButton>
-                    </Link>
-                  </ListItem>
-
-                  <ListItem
-                    key="photos"
-                    disablePadding
-                    sx={{ mr: "15px", minWidth: "15px" }}
-                  >
-                    <Link to="/photos">
-                      <ListItemButton
-                        sx={{
-                          textAlign: "center",
-                          flexDirection: "column",
-                          backgroundColor: "#87CEEB",
-                          "&:hover": {
-                            backgroundColor: "#B6D0E2",
-                          },
-                        }}
-                      >
-                        <PortraitSharpIcon /> <Typography>Photos</Typography>
-                      </ListItemButton>
-                    </Link>
-                  </ListItem>
-
-                  <ListItem
-                    key="videos"
-                    disablePadding
-                    sx={{ mr: "15px", minWidth: "15px" }}
-                  >
-                    <Link to="/videos">
-                      <ListItemButton
-                        sx={{
-                          textAlign: "center",
-                          flexDirection: "column",
-                          backgroundColor: "#87CEEB",
-                          "&:hover": {
-                            backgroundColor: "#B6D0E2",
-                          },
-                        }}
-                      >
-                        <SlideshowSharpIcon /> <Typography>Vidoes</Typography>
-                      </ListItemButton>
-                    </Link>
-                  </ListItem>
-
-                  <ListItem
-                    key="candles"
-                    disablePadding
-                    sx={{ mr: "15px", minWidth: "15px" }}
-                  >
-                    <Link to="/candles">
-                      <ListItemButton
-                        sx={{
-                          textAlign: "center",
-                          flexDirection: "column",
-                          backgroundColor: "#87CEEB",
-                          "&:hover": {
-                            backgroundColor: "#B6D0E2",
-                          },
-                        }}
-                      >
-                        <img
-                          src={CandleImage}
-                          alt="candle-image"
-                          className="candle-image"
-                        />{" "}
-                        <Typography>Candles</Typography>
-                      </ListItemButton>
-                    </Link>
-                  </ListItem>
-
-                  <ListItem
-                    key="text"
-                    disablePadding
-                    sx={{ mr: "15px", minWidth: "15px" }}
-                  >
-                    <Link to="/text">
-                      <ListItemButton
-                        sx={{
-                          textAlign: "center",
-                          flexDirection: "column",
-                          backgroundColor: "#87CEEB",
-                          "&:hover": {
-                            backgroundColor: "#B6D0E2",
-                          },
-                        }}
-                      >
-                        <EditSharpIcon /> <Typography>Text</Typography>
-                      </ListItemButton>
-                    </Link>
-                  </ListItem>
-
-                  <ListItem
-                    key="likes"
-                    disablePadding
-                    sx={{ mr: "15px", minWidth: "15px" }}
-                  >
-                    <Link to="/likes">
-                      <ListItemButton
-                        sx={{
-                          textAlign: "center",
-                          flexDirection: "column",
-                          backgroundColor: "#87CEEB",
-                          "&:hover": {
-                            backgroundColor: "#B6D0E2",
-                          },
-                        }}
-                      >
-                        <ThumbUpSharpIcon /> Likes
-                      </ListItemButton>
-                    </Link>
-                  </ListItem>
-                </List>
-              </Box>
-              {/* </IconButton> */}
-              <IconButton
-                size="large"
-                aria-label="display more actions"
-                edge="end"
-                color="inherit"
-              ></IconButton>
-            </StyledToolbar>
-          </AppBar>
         </Box>
       </ThemeProvider>
     </React.Fragment>
