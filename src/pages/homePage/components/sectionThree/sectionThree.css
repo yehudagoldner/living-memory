@@ -1,15 +1,17 @@
 .sectionThree-container {
-  height: 24em;
   margin: auto;
   background-color: #ffffff;
   padding-top: 2em;
   width: auto;
+  position: relative;
 }
 
 .icon-container {
   background: linear-gradient(grey, white);
-  position: relative;
-  left: 40em;
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
   border-radius: 50%;
   width: 40px;
   height: 40px;
@@ -21,7 +23,7 @@
 }
 
 .icon-container:hover {
-  transform: scale(1.1);
+  background: gray;
 }
 
 .bottom-sectionThree {

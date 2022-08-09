@@ -16,7 +16,7 @@ h3 {
 .item-13-right {
   display: flex;
   flex-direction: row;
-  width: 23em;
+  /* width: 23em; */
   height: 2em;
   gap: 0.8em;
   justify-content: center;

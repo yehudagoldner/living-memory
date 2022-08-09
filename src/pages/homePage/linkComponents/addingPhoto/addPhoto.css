@@ -1,0 +1,44 @@
+.addingPhoto-page {
+  width: 60%;
+  height: 50em;
+  margin: auto;
+  border: 1px solid black;
+}
+
+.years-form {
+  padding-top: 2em;
+}
+
+.navbar-right {
+  padding-top: 1em;
+  list-style: none;
+  display: flex;
+  gap: 15px;
+  justify-content: flex-end;
+  border-bottom: 2px solid rgb(230, 225, 225);
+}
+
+.navbar-photos {
+  display: flex;
+  gap: 20px;
+}
+
+.buttons {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+}
+
+.photo-box {
+  border: 1px solid black;
+  width: 23%;
+  height: 12em;
+}
+
+.photos-box {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 1em;
+  padding-top: 15px;
+}
