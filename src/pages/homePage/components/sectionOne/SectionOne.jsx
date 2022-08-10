@@ -33,12 +33,14 @@ const SectionOne = () => {
           <div className="continue">Continue reading > </div>
         </div>
         <div className="image-box">
-          <img className="flowers" src="photoes-frame.jpg" />
-          <img className="profile-pics" src="person.jpg" alt="" />
+          <img className="flowers" src="frame.png" />
+          <div className="profile-pics-wrapper">
+            <img className="profile-pics" src="person.jpg" alt="" />
+          </div>
         </div>
       </div>
       <div className="scroller-container">
-        <Scroller />
+        {/* <Scroller /> */}
       </div>
     </>
   );

@@ -1,10 +1,13 @@
+import FriendList from "./pages/friendList/friendList.jsx";
+import Contribute from "./pages/contribute/contribute.jsx";
+import UploadFile from "./pages/upload file/uploadFile.jsx";
+import "./App.css";
 import React from "react";
 import Navbar from "../src/components/Navbar/Navbar";
 import Header from "../src/components/Header/Header";
 import Email from "../src/components/Email/Email";
 import PopUp from "../src/components/PopUp/PopUp";
 import HomePage from "../src/pages/homePage/HomePage";
-// import Main from "./pages/friend list/Main";
 import Footer from "./components/Footer/Footer";
 import DrawerAppBar from "./components/Navbar/Navbar.js";
 import {
@@ -24,10 +27,13 @@ import TermsOfUse from "./components/TermsOfUse/TermsOfUse";
 function App() {
   return (
     <div className="App">
+      <Navbar />;
+      <Header />
+      {/* <FriendList /> */}
+      {/* <Contribute /> */}
+      <UploadFile />
       <BrowserRouter>
         <Navbar />
-        <Header />
-
         <Switch>
           <Route exact path="/details/:imageID" component={PopUp} />
 

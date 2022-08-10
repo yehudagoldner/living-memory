@@ -2,35 +2,34 @@ import React from "react";
 import "./toolbar.css";
 // import MenuItem from "@mui/material/MenuItem";
 // import Select from "@mui/material/Select";
-import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
 import SearchIcon from "@mui/icons-material/Search";
+import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
+import { useState } from "react";
 
-function Toolbar() {
+function Toolbar({ render }) {
+  const [friendInput, setfriendInput] = useState("");
+  const handleChange = (e) => {
+    console.log(e.target.value);
+    setfriendInput(e.target.value);
+  };
+
   return (
     <div className="toolbar">
       <div className="toolbar-container">
         <div>Invite friends to</div>
-        <div>
+        <div className="custom-select">
           <select className="select">
-            <option value="">View</option>
-            <option value="">Light a candle</option>
-            <option value="">Add a photo</option>
-            <option value="">Add a video</option>
-            <option value="">Add a writing</option>
+            <option value="0">View</option>
+            <option value="1">Light a candle</option>
+            <option value="2">Add a photo</option>
+            <option value="3">Add a video</option>
+            <option value="4">Add a writing</option>
           </select>
         </div>
         <div>
           <KeyboardArrowRightIcon />
         </div>
-        <div>
-          <input></input>
-          <button>
-            <SearchIcon sx={{ fontSize: 12 }} />
-          </button>
-        </div>
-        <input type="checkbox"></input>
-        <div>Select all </div>
-        <button className="go">GO</button>
+        <div style={{ display: "flex" }}>{render()}</div>
       </div>
     </div>
   );
