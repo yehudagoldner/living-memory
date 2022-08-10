@@ -1,0 +1,19 @@
+.save{
+    font-size:1.5rem;
+    height:7vh;
+    width:99%;
+    padding: auto;
+    border: 1px solid rgba(224, 219, 219, 0.433);
+    background-color: white;
+    margin-top: 2.5px;
+}
+
+.save-border{
+    border: 1px solid black;
+    width:100%;
+    height:8vh;
+  
+
+   
+
+}

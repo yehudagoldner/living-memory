@@ -1,0 +1,101 @@
+.contribute-main{
+    width:68%;
+    height:100vh;
+    /* background-color: rebeccapurple; */
+    margin: auto auto;
+    display:flex;
+    flex-direction: column;
+   
+  
+
+
+}
+h2{
+    max-width: max-content;
+    margin-top: 4rem;
+   
+}
+.top-wrapper{
+    display: flex;
+    gap:33rem;
+}
+
+.share{
+    display:flex;
+    justify-content:center;
+    background-color:#f15b42;
+    gap:1rem;
+    width: 15rem;
+   height:5vh;
+   margin-top: 4rem;
+   color: white;
+   font-size:10px;
+   font-weight:bold;
+  
+
+}
+.invite{
+    align-self: center;
+
+}
+
+.contribute-bar{
+    width:100%;
+    height: 9vh;
+    background-color:#87c6cb;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+    border-radius: 1px;
+    display:flex;
+    gap:1rem;
+    justify-content: start;
+    align-items: center;
+   
+
+}
+
+.contribute-wrapper{
+    margin-left: 1rem;
+    font-size: 11px;
+    font-weight: bold;
+    color: white;
+    display:flex;
+    gap:1rem;
+    justify-content: start;
+    align-items: center;
+
+}
+
+select:hover{
+    cursor: pointer;
+}
+
+.contribute-select{
+         width: 8rem;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        background: transparent;
+        background-size: 12px 14px;
+        background-image: url('../../../public/down-arrow.png');
+        background-repeat: no-repeat;
+        background-position-x: 95%;
+        background-position-y: 55%;
+        border: 1px solid #dfdfdf;
+        border-radius: 2px;
+        padding: 0.1rem;
+      
+      }
+
+
+
+.file-grid{
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+padding: 2rem;
+box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+
+}
+
+.termsOfUse{
+    display: flex;
+}
+
