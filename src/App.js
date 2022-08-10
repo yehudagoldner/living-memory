@@ -29,7 +29,7 @@ function App() {
         <Header />
 
         <Switch>
-          <Route exact path="/details" component={PopUp} />
+          <Route exact path="/details/:imageID" component={PopUp} />
 
           <Route exact path="/" component={HomePage} />
 
