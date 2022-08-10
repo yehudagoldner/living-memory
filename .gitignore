@@ -7,6 +7,7 @@
 cert.pem
 key.pem
 .env
+package-lock.json
 # testing
 /coverage
 
