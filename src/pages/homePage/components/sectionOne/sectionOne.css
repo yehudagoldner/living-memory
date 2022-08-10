@@ -5,7 +5,7 @@
   z-index: 10;
   position: absolute;
   top:100%;
-  background-size: contain;
+  background-size: cover;
   content: "";
 }
 .sectionOne-container {
