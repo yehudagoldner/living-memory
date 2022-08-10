@@ -6,10 +6,11 @@
   box-sizing: border-box;
   font-weight: 300;
   color: #ffffff;
-  background-color: #e57948;
+  background-color: #be4b16;
   text-align: center;
   transition: all 0.2s;
   border: none;
+  font-size: 1rem;
 }
 .btn:hover {
   background-color: #de845a;

@@ -44,7 +44,7 @@ function App() {
             {/* <Main /> */}
           </Route>
         </Switch>
-        <Footer />
+        {/* <Footer /> */}
       </BrowserRouter>
     </div>
   );
