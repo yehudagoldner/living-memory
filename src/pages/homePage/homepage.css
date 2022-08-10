@@ -1,0 +1,17 @@
+.homePage-container {
+  /* margin: auto; */
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+
+  /* margin: 0 auto;
+  width: 100vw; */
+}
+
+/* @media only screen and (max-width: 1000px) {
+  .homePage-container {
+    /* margin: auto; */
+
+/* width: 100vw; */
+/* margin: 0 auto;
+    width: 100vw; */

@@ -1,0 +1,22 @@
+.sectionFour-container {
+  height: 300px;
+  background-color: #f5f5dc;
+  display: flex;
+  justify-content: space-evenly;
+  /* gap: 150px;
+  justify-content: center; */
+}
+
+@media only screen and (max-width: 1200px) {
+  .sectionFour-container {
+    height: 600px;
+
+    background-color: #f5f5dc;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    font-size: 2em;
+    justify-content: center;
+    align-items: center;
+  }
+}
