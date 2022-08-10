@@ -1,16 +1,17 @@
-import Navbar from "../src/component/Navbar/Navbar";
-import { BrowserRouter, Route } from "react-router-dom";
-import "./App.css";
+import Navbar from "./components/Navbar/Navbar.js";
+import FriendList from "./pages/friendList/friendList.jsx";
+import Contribute from "./pages/contribute/contribute.jsx";
+import UploadFile from "./pages/upload file/uploadFile.jsx";
 
-import Main from "./components/main/main.jsx";
+import "./App.css";
+// import ArrowDown from "./components/arrowDown/arrowDown.jsx";
+
 function App() {
   return (
     <div className="App">
-      <Main />
-   
-    <BrowserRouter>
-      <Navbar />;
-    </BrowserRouter>
+      <Navbar />;{/* <FriendList /> */}
+      {/* <Contribute /> */}
+      <UploadFile />
     </div>
   );
 }
