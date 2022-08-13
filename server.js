@@ -5,7 +5,7 @@ const indexRoutes = require('./routes/index')
 const app = express();
 
 app.use('/', indexRoutes)
-app.listen(3000);
+// app.listen(3000);
 const httpsServer = https.createServer(
   { key: fs.readFileSync("key.pem"), cert: fs.readFileSync("cert.pem") },
   app
