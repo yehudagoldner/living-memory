@@ -1,0 +1,65 @@
+generator client {
+  provider        = "prisma-client-js"
+  previewFeatures = ["referentialIntegrity"]
+}
+
+datasource db {
+  provider             = "mysql"
+  url                  = env("DATABASE_URL")
+  referentialIntegrity = "prisma"
+}
+
+model User {
+  id            Int             @id @default(autoincrement())
+  facebook_id   String          @unique
+  name          String
+  email         String?
+  createdAt     DateTime?       @default(now())
+  updatedAt     DateTime?       @updatedAt
+  Posts         Post[]
+  ProfileImages ProfileImages[]
+  PagesLiked    PagesLiked[]
+
+  @@index([facebook_id, email, name, createdAt, updatedAt])
+}
+
+model Post {
+  id          Int       @id @default(autoincrement())
+  facebook_id String    @unique
+  userId      Int?
+  user        User?     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  type        String
+  text        String?   @db.LongText
+  video       String?   @db.LongText
+  image       String?   @db.LongText
+  likes       Int?
+  comments    Int?
+  posted_date DateTime?
+
+  @@index([facebook_id, type, likes, comments])
+  @@index([userId])
+}
+
+model ProfileImages {
+  id          Int       @id @default(autoincrement())
+  facebook_id String    @unique
+  userId      Int?
+  user        User?     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  image       String?   @db.LongText
+  likes       Int?
+  comments    Int?
+  posted_date DateTime?
+
+  @@index([facebook_id, userId, likes, comments])
+}
+
+model PagesLiked {
+  id          Int       @id @default(autoincrement())
+  facebook_id String    @unique
+  userId      Int?
+  user        User?     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  image       String?   @db.LongText
+  time_liked  DateTime?
+
+  @@index([facebook_id, userId])
+}
