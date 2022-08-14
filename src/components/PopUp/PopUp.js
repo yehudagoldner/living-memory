@@ -12,6 +12,8 @@ import ShareIcon from "@mui/icons-material/Share";
 import ExtensionIcon from "@mui/icons-material/Extension";
 import AddIcon from "@mui/icons-material/Add";
 import List from "@mui/material/List";
+import LeftArrow from "./icons/left-arrow.png";
+import RightArrow from "./icons/arrow-right1.png";
 
 // import DialogContent from "@mui/material/DialogContent";
 import "./PopUp.css";
@@ -48,12 +50,17 @@ export default function PopUp(props) {
         <Box sx={{ backgroundColor: "#F5F5DC" }} className="main_container">
           <Box className="first_container">
             {/* <DialogContent> */}
+            <img src={LeftArrow} className="left_arrow"/>
             <img
               className="image"
               src="https://parade.com/.image/c_limit%2Ccs_srgb%2Cq_auto:good%2Cw_808/MTkwNTgwOTUyNjU2Mzg5MjQ1/albert-einstein-quotes-jpg.webp"
               alt="parade.com"
             />
+            {/* <Box > */}
+
             {/* </DialogContent> */}
+            {/* </Box> */}
+            <img src={RightArrow} className="right_arrow"/>
           </Box>
           <Box
             className="box"

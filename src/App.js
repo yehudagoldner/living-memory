@@ -27,7 +27,7 @@ import TermsOfUse from "./components/TermsOfUse/TermsOfUse";
 function App() {
   return (
     <div className="App">
-      <Navbar />;
+      <Navbar />
       <Header />
       {/* <FriendList /> */}
       {/* <Contribute /> */}
