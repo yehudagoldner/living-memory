@@ -6,6 +6,10 @@
   position: relative;
 }
 
+.sectionThree-container h3 {
+  text-align: center;
+}
+
 .icon-container {
   background: linear-gradient(grey, white);
   position: absolute;

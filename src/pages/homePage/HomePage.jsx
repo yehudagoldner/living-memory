@@ -12,9 +12,8 @@ const HomePage = () => {
     <div className="homePage-container">
       <SectionOne />
       <SectionTwo />
-
       <SectionThree />
-      {/* <SectionFour /> */}
+      <SectionFour />
     </div>
   );
 };

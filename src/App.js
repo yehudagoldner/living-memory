@@ -1,6 +1,6 @@
 import FriendList from "./pages/friendList/friendList.jsx";
 import Contribute from "./pages/contribute/contribute.jsx";
-import UploadFile from "./pages/upload file/uploadFile.jsx";
+// import UploadFile from "./pages/upload file/uploadFile.jsx";
 import "./App.css";
 import React from "react";
 import Navbar from "../src/components/Navbar/Navbar";
@@ -27,13 +27,13 @@ import TermsOfUse from "./components/TermsOfUse/TermsOfUse";
 function App() {
   return (
     <div className="App">
-      <Navbar />;
+      <Navbar />
       <Header />
       {/* <FriendList /> */}
       {/* <Contribute /> */}
-      <UploadFile />
+      {/* <UploadFile /> */}
       <BrowserRouter>
-        <Navbar />
+        {/* <Navbar /> */}
         <Switch>
           <Route exact path="/details" component={PopUp} />
 
@@ -50,7 +50,7 @@ function App() {
             {/* <Main /> */}
           </Route>
         </Switch>
-        {/* <Footer /> */}
+        <Footer />
       </BrowserRouter>
     </div>
   );
