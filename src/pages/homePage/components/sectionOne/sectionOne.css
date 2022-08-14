@@ -4,11 +4,7 @@
   height: 120px;
   z-index: 10;
   position: absolute;
-<<<<<<< HEAD
   top: 100%;
-=======
-  top:100%;
->>>>>>> b8af546e9165430fbede0f9e269cdc8aca496491
   background-size: cover;
   content: "";
 }
