@@ -11,8 +11,13 @@ app.route("/posts").get(async (req, res)=> res.json(await prisma.post.findMany({
 app.route("/pagesLiked").get(async (req, res)=> res.json(await prisma.pagesLiked.findMany({})))
 app.route("/profileImages").get(async (req, res)=> res.json(await prisma.profileImages.findMany({})))
 app.route("/user").get(async (req, res)=> res.json(await prisma.user.findFirst({})))
-app.get("/", async (req, res) => {
-  // res.send(user)
+app.get("/all", async (req, res) => {
+  res.json( {
+   posts: await prisma.post.findMany({}),
+   pagesLiked: await prisma.pagesLiked.findMany({}),
+   profileImages: await prisma.profileImages.findMany({}),
+   user: await prisma.user.findFirst({}),
+  })
 });
 
 module.exports = app;
