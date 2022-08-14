@@ -1,6 +1,6 @@
 import FriendList from "./pages/friendList/friendList.jsx";
 import Contribute from "./pages/contribute/contribute.jsx";
-import UploadFile from "./pages/upload file/uploadFile.jsx";
+// import UploadFile from "./pages/upload file/uploadFile.jsx";
 import "./App.css";
 import React from "react";
 import Navbar from "../src/components/Navbar/Navbar";
@@ -31,9 +31,9 @@ function App() {
       <Header />
       {/* <FriendList /> */}
       {/* <Contribute /> */}
-      <UploadFile />
+      {/* <UploadFile /> */}
       <BrowserRouter>
-        <Navbar />
+        {/* <Navbar /> */}
         <Switch>
           <Route exact path="/details/:imageID" component={PopUp} />
 

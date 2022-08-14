@@ -1,29 +1,33 @@
-.container-left {
+.leftBox-wrapper {
   position: relative;
-
-  width: 60%;
-  background-size: contain;
-
-  height: 18em;
-  padding: 40px;
-
+  width: 25%;
+  padding: 20px;
   margin: auto;
-  margin-left: 200px;
-  background-color: rgb(230, 232, 211);
   overflow: hidden;
   text-align: justify;
   line-height: 1.2;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5em;
+  margin: 2em;
 }
 
-.container-left:before {
+.leftBox-title {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 5px;
+}
+
+.leftBox-wrapper :before {
   content: "";
   position: absolute;
-  bottom: 0;
+  top: 70%;
   right: 0;
   border-width: 50px 50px 0 0;
+  border-radius: 30% 0 0 0;
   border-style: solid;
   border-color: #fff rgb(230, 232, 211) #fff rgb(230, 232, 211);
-  box-shadow: rgba(131, 127, 127, 0.35) 0px 5px 15px;
 }
 
 .img-left {
@@ -32,28 +36,17 @@
   height: 40px;
 }
 
-.title-left h3 {
-  position: relative;
-  left: 50px;
-  bottom: 45px;
-  line-height: 1;
-  padding-top: 4px;
-}
-.bottom {
-  display: flex;
-  flex-direction: row;
-  padding-top: 20px;
-  width: 50%;
-  justify-content: space-around;
-  align-content: flex-end;
-  margin-left: 15em;
-  padding-bottom: 2em;
-  margin: auto;
+.text-left {
+  margin-bottom: 2.5em;
 }
 
-@media only screen and (max-width: 750px) {
-  .container-left {
-    width: 70%;
-    font-size: larger;
+@media only screen and (max-width: 1200px) {
+  .leftBox-wrapper {
+    width: 40%;
+  }
+}
+@media only screen and (max-width: 800px) {
+  .leftBox-wrapper {
+    width: 80%;
   }
 }

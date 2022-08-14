@@ -6,6 +6,10 @@
   position: relative;
 }
 
+.sectionThree-container h3 {
+  text-align: center;
+}
+
 .icon-container {
   background: linear-gradient(grey, white);
   position: absolute;
@@ -43,8 +47,14 @@
   position: relative;
 }
 
-@media only screen and (max-width: 1000px) {
+@media only screen and (max-width: 800px) {
   .sectionThree-container {
-    height: 26em;
+    padding: 2em;
+    font-size: larger;
+    /* height: 26em; */
+  }
+  .bottom-sectionThree {
+    display: flex;
+    flex-direction: column;
   }
 }

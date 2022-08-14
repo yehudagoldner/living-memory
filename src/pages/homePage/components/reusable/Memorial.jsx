@@ -1,7 +1,8 @@
 import React from "react";
+import "./memorial.css";
 
 const Memorial = ({ memorial }) => {
-  return <div>250 {memorial}</div>;
+  return <div className="memorial">250 {memorial}</div>;
 };
 
 export default Memorial;

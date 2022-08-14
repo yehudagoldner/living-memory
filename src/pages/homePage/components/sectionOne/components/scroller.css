@@ -11,10 +11,10 @@
   margin-top: 4px;
 }
 
-.square:hover {
+/* .square:hover {
   background-color: rgb(113, 215, 215);
   cursor: pointer;
-}
+} */
 
 .arrow-right {
   width: 0;

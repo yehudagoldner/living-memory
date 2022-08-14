@@ -1,8 +1,9 @@
 .view {
   color: #e35f21;
+  text-align: center;
 }
 
 .view:hover {
-  transform: scale(1.1);
   cursor: pointer;
+  font-weight: lighter;
 }

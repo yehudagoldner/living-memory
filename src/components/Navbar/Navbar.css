@@ -11,19 +11,22 @@
   font-size: 20px;
 }
 
-.candle-image{
-    height: 24px;
-    width: 32px;
+.candle-image {
+  height: 24px;
+  width: 32px;
 }
 
-.candle-image-drawer{
-    height: 26px;
-    width: 32px;
-
+.candle-image-drawer {
+  height: 26px;
+  width: 32px;
 }
 
 @media screen and (max-width: 758px) {
   .living-memory-img {
     margin-left: 100px;
   }
+}
+
+a {
+  text-decoration: none;
 }
