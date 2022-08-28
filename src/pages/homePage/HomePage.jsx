@@ -15,6 +15,7 @@ const HomePage =  () => {
       const response = await fetch("http://go-vegan.co.il:4444/all");
       const results = await response.json()
       setData(results)
+      console.log(results);
     })()
     
   }, [])
