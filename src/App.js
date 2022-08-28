@@ -9,6 +9,7 @@ import Email from "../src/components/Email/Email";
 import PopUp from "../src/components/PopUp/PopUp";
 import HomePage from "../src/pages/homePage/HomePage";
 import Footer from "./components/Footer/Footer";
+import AddPhoto from "./pages/homePage/linkComponents/addingPhoto/AddPhoto";
 import DrawerAppBar from "./components/Navbar/Navbar.js";
 import {
   Switch,
@@ -17,6 +18,7 @@ import {
   Routes,
   Navigate,
 } from "react-router-dom";
+import { FacebookProvider } from "./context/context.provider.jsx";
 
 import "./App.css";
 // import EmailButton from "./components/EmailButton/EmailButton";
@@ -26,18 +28,24 @@ import TermsOfUse from "./components/TermsOfUse/TermsOfUse";
 
 function App() {
   return (
-    <div className="App">
-      <Navbar />
-      <Header />
-      {/* <FriendList /> */}
-      {/* <Contribute /> */}
-      {/* <UploadFile /> */}
-      <BrowserRouter>
+    <FacebookProvider>
+      <div className="App">
+        <Navbar />
+        {/* <Header /> */}
+        {/* <FriendList /> */}
+        {/* <Contribute /> */}
+        {/* <UploadFile /> */}
+        {/* <BrowserRouter> */}
         {/* <Navbar /> */}
         <Switch>
           <Route exact path="/details" component={PopUp} />
-
           <Route exact path="/" component={HomePage} />
+          <Route exact path="/contribute" component={Contribute} />
+          <Route exact path="/photos" component={AddPhoto} />
+
+          {/* <Route exact path="/">
+          <HomePage />
+        </Route> */}
 
           <Route exact path="/email">
             <Email />
@@ -47,22 +55,14 @@ function App() {
           </Route>
 
           <Route exact path="/invite_friends">
-            {/* <Main /> */}
+            <FriendList />
           </Route>
         </Switch>
         <Footer />
-      </BrowserRouter>
-    </div>
+        {/* </BrowserRouter> */}
+      </div>
+    </FacebookProvider>
   );
 }
-
-// export default App
-//   return (
-//     <div className="App">
-//       <DrawerAppBar />
-//       <HomePage />
-//     </div>
-//   );
-// }
 
 export default App;
