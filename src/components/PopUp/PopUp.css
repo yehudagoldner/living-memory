@@ -16,24 +16,36 @@
 .like_icon {
   margin-right: 25px;
   color: white;
+  padding: 0px;
 }
 
 .active-like {
-  color: #0165E1;
+  color: #0165e1;
 }
-/* .first_container {
+.first_container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+/* .second_container {
     justify-content: center;
     align-items: center;
-  }
-  .second_container {
-    justify-content: center;
-    align-items: center;
-  } */
+  }  */
 .image {
-  width: 100%;
+  width: 60%;
   height: 600px;
 }
 
+.text {
+  text-decoration: none;
+}
+
+.right_arrow {
+  height: 60px;
+}
+.left_arrow {
+  height: 70px;
+}
 /* .btn:hover {
     color: #ff2625;
     border: 1px solid #ff2625;

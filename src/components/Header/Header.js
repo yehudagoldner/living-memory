@@ -115,7 +115,7 @@ const Header = () => {
                   </ListItem>
                 </Link>
 
-                <Link className="decor" to="/book_view">
+                <Link className="decor" to="/bookview">
                   <ListItem
                     key="book-view"
                     disablePadding
