@@ -1,0 +1,127 @@
+.Candles {
+  padding-top: 50px;
+  max-width: 60%;
+  margin: 0 auto;
+}
+.right-side-buttons a {
+  color: #eb3911;
+  font-weight: bold;
+  font-size: 20px;
+  /* padding-right: 30px; */
+}
+
+.right-side-buttons button {
+  background-color: #eb3911;
+  color: #fff;
+  margin: 10px;
+  padding: 10px 20px;
+  text-align: center;
+  font-size: 16px;
+  border: none;
+}
+.right-side-buttons button:hover {
+  background-color: #e46c51;
+  cursor: pointer;
+}
+
+.Candles span {
+  font-size: 30px;
+  opacity: 0.8;
+  line-height: 1;
+}
+
+.head-wrapper {
+  display: flex;
+  padding: 5px;
+  justify-content: space-between;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 20px;
+  text-decoration: none;
+}
+.head-wrapper .right-side-buttons,
+.head-wrapper span {
+  /* justify-content: space-between; */
+  display: flex;
+  list-style: none;
+  /* padding: 15px; */
+  align-items: center;
+  border-radius: 4px;
+}
+
+.Candles img {
+  width: 100px;
+  height: 100px;
+  margin: 10px;
+  transition: all 100ms ease-in-out;
+  border: 3px solid #fff;
+}
+.Candles img:hover {
+  border: 3px solid #eb3911;
+}
+.form-section {
+  text-align: left;
+}
+.Candles input,
+.Candles textarea {
+  width: 100%;
+  margin: 10px;
+  padding: 5px;
+}
+.Candles .submit-button {
+  width: 100%;
+  padding: 25px;
+  margin: 20px 15px;
+
+  font-size: 20px;
+  background-color: #eb3911;
+  border: 1px solid #fff;
+  color: #fff;
+}
+.Candles .submit-button:hover {
+  background-color: #fff;
+  color: #eb3911;
+  transition: all 250ms ease-in-out;
+  border: 1px solid #eb3911;
+  cursor: pointer;
+}
+
+/* .icon {
+  width: 10px;
+  height: 10px;
+} */
+/* @media screen and (max-width: 600px) {
+  .Candles span {
+    display: block;
+  } */
+/* } */
+
+@media screen and (max-width: 600px) {
+  .Candles {
+    margin: 0 auto;
+    text-align: center;
+    padding-top: 50px;
+    max-width: 100%;
+    padding-left: 1rem;
+  }
+  .head-wrapper {
+    flex-direction: column;
+  }
+  .Candles span {
+    margin: 15px 5px;
+  }
+
+  .Candles input,
+  .Candles textarea {
+    max-width: 80%;
+    margin: 5px;
+  }
+
+  .Candles p {
+    margin: 5px;
+  }
+  .Candles .submit-button {
+    margin: 10px 5px;
+    max-width: 80%;
+  }
+}
