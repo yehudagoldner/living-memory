@@ -1,20 +1,30 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "./scroller.css";
 
-const Scroller = () => {
+const Scroller = ({ images }) => {
+  const [profileImagesArr, setProfileImagesArr] = useState([]);
+  useEffect(() => {
+    if (images.profileImages) {
+      const currentImageArr = JSON.parse(images.profileImages[0].image);
+
+      setProfileImagesArr(currentImageArr);
+    }
+  }, [images]);
+
+  // console.log(profileImagesArr);
   return (
     <div className="scroller">
-      <div className="arrow-left" onClick={() => console.log("move")}></div>
+      <div className="arrow-left"></div>
 
-      <div class="square"></div>
-      <div class="square"></div>
-      <div class="square"></div>
-      <div class="square"></div>
-      <div class="square"></div>
-      <div class="square"></div>
-      <div class="square"></div>
-      <div class="square"></div>
-      <div className="arrow-right" onClick={() => console.log("move")}></div>
+      <div className="square"></div>
+      <div className="square"></div>
+      <div className="square"></div>
+      <div className="square"></div>
+      <div className="square"></div>
+      <div className="square"></div>
+      <div className="square"></div>
+      <div className="square"></div>
+      <div className="arrow-right"></div>
     </div>
   );
 };
