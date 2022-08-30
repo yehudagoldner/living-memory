@@ -1,0 +1,79 @@
+*{
+    box-sizing: border-box;
+    padding: 0px;
+}
+
+.form {
+  margin-top: 25px;
+}
+
+.body {
+  position: relative;
+  top: 100px;
+}
+
+.progressbar {
+  position: relative;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+  margin: 2rem 0 4rem 0;
+  counter-reset: steps;
+  max-width: 1000px;
+  margin: auto;
+}
+
+.progress-steps {
+  width: 70px;
+  height: 70px;
+  background-color: beige;
+  border: 2px solid #999;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2;
+}
+
+.progress-steps::before {
+  counter-increment: steps;
+  content: counter(steps);
+  color: black;
+}
+
+.progress-steps::after {
+  content: attr(data-title);
+  position: absolute;
+  top: calc(100% - 0.01rem);
+  color: black;
+  font-size: 1.1rem;
+}
+
+.progress-steps.active {
+  background-color: #6495ed;
+}
+
+.progressbar::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 4px;
+  width: 94%;
+  background-color: black;
+}
+
+.footer {
+  position: relative;
+  top: 150px;
+  display: flex;
+  justify-content: space-between;
+  max-width: 70px;
+  margin: auto;
+}
+
+/* .form-container {
+    display:flex;
+    justify-content: center;
+    align-items: center;
+} */

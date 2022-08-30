@@ -1,6 +1,8 @@
 import React, { useState } from "react";
+import PersonalInfo from "./PersonalInfo";
+import MemorialInfo from "./MemorialInfo";
+import Finish from "./Finish";
 import Box from "@mui/material/Box";
-import Stepper from "@mui/material/Stepper";
 import Step from "@mui/material/Step";
 import StepLabel from "@mui/material/StepLabel";
 import Button from "@mui/material/Button";
