@@ -1,29 +1,58 @@
-import React, { useState } from "react";
-import ArrowSliderRight from "./ArrowSliderRight";
-import ArrowSliderLeft from "./ArrowSliderLeft";
-import "./slider.css";
-import "./scroller.css";
+import React, { useState, useContext, useEffect } from "react";
+import "./Slider.css";
+import BtnSlider from "./BtnSlider";
 
-const imagesArr = ["1", "2", "3", "4", "5"];
+import { facebookContentContext } from "../../../../../context/context.provider";
 
-const Slider = () => {
+export default function Slider({ imagesArr, setImagesArr, length }) {
   const [slideIndex, setSlideIndex] = useState(1);
+  const [data, setData] = useContext(facebookContentContext);
+  const [personImage, setPersonImage] = useState();
 
-  const nextSlide = () => {};
-  const prevSlide = () => {};
+  useEffect(() => {
+    if (data.profileImages) {
+      const currentImageArr = JSON.parse(data.profileImages[slideIndex].image);
+      console.log(data);
+      // setImagesArr(currentImageArr);
+      // console.log(currentImageArr);
+      setImagesArr(currentImageArr);
+      // setPersonImage(currentImageArr[0].source);
+    }
+  });
+
+  console.log(imagesArr.length);
+
+  const nextSlide = () => {
+    if (slideIndex !== imagesArr.length) {
+      setSlideIndex(slideIndex + 1);
+    } else if (slideIndex === imagesArr.length) {
+      setSlideIndex(1);
+    }
+  };
+  // };
+
+  const prevSlide = () => {
+    if (slideIndex !== 1) {
+      setSlideIndex(slideIndex - 1);
+    } else if (slideIndex === 1) {
+      setSlideIndex(imagesArr.length);
+    }
+  };
+
   return (
     <div className="container-slider">
-      {imagesArr.map((obj, index) => {
-        return (
-          <div>
-            <img src="" />
-          </div>
-        );
-      })}
-      <ArrowSliderLeft moveSlide={nextSlide} direction={"next"} />
-      <ArrowSliderRight moveSlide={prevSlide} direction={"prev"} />
+      {/* <div className="slide active-anim"></div> */}
+      <BtnSlider moveSlide={prevSlide} direction={"prev"} />
+      <BtnSlider moveSlide={nextSlide} direction={"next"} />
+
+      {/* <div className="container-dots">
+        {Array.from({ length }).map((item, index) => (
+          <div
+            onClick={() => moveDot(index + 1)}
+            className={slideIndex === index + 1 ? "dot active" : "dot"}
+          ></div>
+        ))}
+      </div> */}
     </div>
   );
-};
-
-export default Slider;
+}

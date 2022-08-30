@@ -7,7 +7,7 @@ import Navbar from "../src/components/Navbar/Navbar";
 import Header from "../src/components/Header/Header";
 import Email from "../src/components/Email/Email";
 import PopUp from "../src/components/PopUp/PopUp";
-import Wizard from "../src/components/Wizard/Wizard";
+// import Wizard from "../src/components/Wizard/Wizard";
 import HomePage from "../src/pages/homePage/HomePage";
 import Footer from "./components/Footer/Footer";
 import AddPhoto from "./pages/homePage/linkComponents/addingPhoto/AddPhoto";
@@ -33,24 +33,20 @@ function App() {
     <FacebookProvider>
       <div className="App">
         <Navbar />
-        {/* <Header /> */}
+        <Header />
         {/* <FriendList /> */}
         {/* <Contribute /> */}
         {/* <UploadFile /> */}
         {/* <BrowserRouter> */}
         {/* <Navbar /> */}
         <Switch>
-          <Route exact path="/wizard" component={Wizard} />
+          {/* <Route exact path="/wizard" component={Wizard} /> */}
           <Route exact path="/details/:imageID" component={PopUp} />
           <Route exact path="/bookview" component={Book} />
 
           <Route exact path="/" component={HomePage} />
           <Route exact path="/contribute" component={Contribute} />
           <Route exact path="/photos" component={AddPhoto} />
-
-          {/* <Route exact path="/">
-          <HomePage />
-        </Route> */}
 
           <Route exact path="/email">
             <Email />
