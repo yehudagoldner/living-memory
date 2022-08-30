@@ -30,31 +30,55 @@ function App() {
   return (
     <div className="App">
       <Navbar />
-      <Header />
+
       {/* <FriendList /> */}
       {/* <Contribute /> */}
       {/* <UploadFile /> */}
       <BrowserRouter>
         {/* <Navbar /> */}
         <Switch>
-          <Route exact path="/wizard" component={Wizard} />
-          <Route exact path="/details/:imageID" component={PopUp} />
-          <Route exact path="/bookview" component={Book} />
+          <Route
+            exact
+            path="/wizard"
+            render={(props) => <Wizard {...props} />}
+          />
+        
 
-          <Route exact path="/" component={HomePage} />
+        <Route
+          exact
+          path="/details/:imageID"
+          render={(props) => (
+            <>
+              <Header />
+              <PopUp  {...props}/>
+            </>
+          )}
+        />
+        <Route exact path="/bookview" component={Book} />
 
-          <Route exact path="/email">
-            <Email />
-          </Route>
-          <Route exact path="/terms_of_use">
-            <TermsOfUse />
-          </Route>
+        <Route exact path="/" render={(props) => (
+            <>
+              <Header />
+              
+              <HomePage />
+            </>
+          )} />
 
-          <Route exact path="/invite_friends">
-            {/* <Main /> */}
-          </Route>
+        <Route exact path="/email">
+          <>
+            <Email />              
+            </>
+        </Route>
+        <Route exact path="/terms_of_use">
+          
+          <TermsOfUse />
+        </Route>
+
+        <Route exact path="/invite_friends">
+          {/* <Main /> */}
+        </Route>
+        {/* <Footer /> */}
         </Switch>
-        <Footer />
       </BrowserRouter>
     </div>
   );

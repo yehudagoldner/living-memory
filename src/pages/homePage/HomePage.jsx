@@ -21,6 +21,7 @@ const HomePage =  () => {
   }, [])
   return (
     <div className="homePage-container">
+      
       {data && (
       <>
         <SectionOne data={data}/>
