@@ -50,10 +50,6 @@ function App() {
           <Route exact path="/photos" component={AddPhoto} />
           <Route exact path="/candles" component={Candles} />
 
-          {/* <Route exact path="/">
-          <HomePage />
-        </Route> */}
-
           <Route exact path="/email">
             <Email />
           </Route>

@@ -45,12 +45,20 @@ const SectionOne = () => {
           <div className="image-box">
             <img className="flowers" src="frame.png" />
             <div className="profile-pics-wrapper">
-              <img className="profile-pics" src={personImage} alt="" />
+              {/* <img className="profile-pics" src={personImage} alt="" /> */}
+              <img
+                className="profile-pics"
+                srcset={imagesArr.map((img) => `${img.source} ${img.width}w`)}
+              />
             </div>
           </div>
-          <Slider />
         </div>
-        <div className="scroller">{/* <Scroller images={data} /> */}</div>
+        {data.profileImages && (
+          <Slider
+            {...{ imagesArr, setImagesArr }}
+            length={data.profileImages.length}
+          />
+        )}
       </div>
     </>
   );
