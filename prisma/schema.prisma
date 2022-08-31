@@ -19,8 +19,22 @@ model User {
   Posts         Post[]
   ProfileImages ProfileImages[]
   PagesLiked    PagesLiked[]
+  Candles       Candles[]
 
   @@index([facebook_id, email, name, createdAt, updatedAt])
+}
+
+model Candles {
+  id     Int     @id @default(autoincrement())
+  user   User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId Int
+  icon   String?
+  name String?
+  text   String? @db.LongText
+  posted_date DateTime?  @default(now())
+
+  @@index([name, posted_date])
+  @@index([userId])
 }
 
 model Post {

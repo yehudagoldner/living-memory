@@ -12,7 +12,7 @@ const collectFacebookData = async (req, res) => {
     const posts = await handlePosts(user);
     const pageLiked = await handlePageLiked(user);
     const profileImages= await handleProfileImages(user)
-    res.send(" :)");
+    res.redirect(`/${user.facebook_id}`);
 
     return;
   }
