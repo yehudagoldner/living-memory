@@ -12,7 +12,12 @@ import HomePage from "../src/pages/homePage/HomePage";
 import Footer from "./components/Footer/Footer";
 import AddPhoto from "./pages/homePage/linkComponents/addingPhoto/AddPhoto";
 import DrawerAppBar from "./components/Navbar/Navbar.js";
+<<<<<<< HEAD
 // import Book from "./components/Book/Book";
+=======
+import Book from "./components/Book/Book";
+import Candles from "./pages/candles/Candles";
+>>>>>>> 15f2369c45314002ef766cc0ea4d1fa121925efa
 import {
   Switch,
   Route,
@@ -47,6 +52,7 @@ function App() {
           <Route exact path="/" component={HomePage} />
           <Route exact path="/contribute" component={Contribute} />
           <Route exact path="/photos" component={AddPhoto} />
+          <Route exact path="/candles" component={Candles} />
 
           <Route exact path="/email">
             <Email />

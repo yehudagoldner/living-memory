@@ -40,7 +40,7 @@ const SectionOne = () => {
             <br></br>
             <div className="text-container">{biography}</div>
 
-            <div className="continue">Continue reading > </div>
+            <div className="continue">Continue reading &gt; </div>
           </div>
           <div className="image-box">
             <img className="flowers" src="frame.png" />

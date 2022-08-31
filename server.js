@@ -5,6 +5,8 @@ const fs = require("fs");
 const indexRoutes = require('./routes/index')
 const app = express();
 app.use(cors())
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 app.use('/', indexRoutes)
 app.listen(4444)
 // app.listen(3000);
