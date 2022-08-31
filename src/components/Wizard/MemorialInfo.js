@@ -2,18 +2,24 @@ import * as React from "react";
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 import Typography from "@mui/material/Typography";
-// import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
-// import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
+// import { DatePicker } from "react-responsive-datepicker";
+// import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
+// import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
+
 // import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 
 const MemorialInfo = ({ formData, setFormData }) => {
   //   const [value, setValue] = React.useState(null);
+  const [isOpen, setIsOpen] = React.useState(false);
 
   return (
     <>
       <div className="memorial-info-container">
-        <Typography sx={{fontWeight:"bold", fontSize:"24px", mb:"15px"}}>Information about the memorialized person</Typography>
+        <Typography sx={{ fontWeight: "bold", fontSize: "24px", mb: "15px" }}>
+          Information about the memorialized person
+        </Typography>
         <Box
+          className="memorial-info-form"
           component="form"
           sx={{
             "& > :not(style)": { m: 1, width: "25ch" },
@@ -22,8 +28,9 @@ const MemorialInfo = ({ formData, setFormData }) => {
           autoComplete="off"
         >
           <TextField
+            className="memorial-info-grid-1"
             id="outlined-basic"
-            label="User Name"
+            label="Facebook User Name"
             variant="outlined"
             value={formData.userName}
             onChange={(e) =>
@@ -32,16 +39,17 @@ const MemorialInfo = ({ formData, setFormData }) => {
           />
           <TextField
             id="outlined-basic"
-            label="Email"
+            label="Facebook Email"
             variant="outlined"
             value={formData.email}
             onChange={(e) =>
               setFormData({ ...formData, email: e.target.value })
             }
           />
+
           <TextField
             id="outlined-multiline-static"
-            label="About"
+            label="Tell us about the momorialzed person"
             multiline
             rows={4}
             value={formData.about}
@@ -52,25 +60,8 @@ const MemorialInfo = ({ formData, setFormData }) => {
         </Box>
       </div>
 
-      {/* <Box
-        component="form"
-        sx={{
-          "& > :not(style)": { m: 1, width: "25ch" },
-        }}
-        noValidate
-        autoComplete="off"
-        >
-        <LocalizationProvider dateAdapter={AdapterDayjs}>
-        <DatePicker
-        label="Basic example"
-        value={value}
-        onChange={(newValue) => {
-            setValue(newValue);
-        }}
-            renderInput={(params) => <TextField {...params} />}
-          />
-        </LocalizationProvider>
-      </Box> */}
+
+      
     </>
   );
 };
