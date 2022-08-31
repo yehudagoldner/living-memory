@@ -43,7 +43,7 @@ function App() {
         <Switch>
           {/* <Route exact path="/wizard" component={Wizard} /> */}
           <Route exact path="/details/:imageID" component={PopUp} />
-          <Route exact path="/bookview" component={Book} />
+          {/* <Route exact path="/bookview" component={Book} /> */}
 
           <Route exact path="/" component={HomePage} />
           <Route exact path="/contribute" component={Contribute} />

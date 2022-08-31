@@ -12,19 +12,15 @@ const HomePage = () => {
 
   return (
     <div className="homePage-container">
-<<<<<<< HEAD
       
       {data && (
-=======
-      {/* {data && ( */}
->>>>>>> 5eece0ea5461d9bea847e4659ff9800ab6b982d4
       <>
         <SectionOne />
         <SectionTwo />
         <SectionThree />
         <SectionFour />
       </>
-      {/* )} */}
+      )}
     </div>
   );
 };
