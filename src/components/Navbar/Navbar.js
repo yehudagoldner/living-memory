@@ -227,7 +227,7 @@ function DrawerAppBar(props) {
                   display: { xs: "none", lg: "flex" },
                 }}
               >
-                <Link to="/invite_friends">
+                <Link to="/invite_friends" className="text">
                   <Button
                     key="invite-friends"
                     sx={{
@@ -239,7 +239,7 @@ function DrawerAppBar(props) {
                     <PeopleIcon sx={{ mr: 1 }} /> Invite friends
                   </Button>
                 </Link>
-                <Link to="/contribute">
+                <Link to="/contribute" className="text">
                   <Button
                     key="contributes"
                     sx={{
@@ -251,7 +251,7 @@ function DrawerAppBar(props) {
                     <ExtensionIcon sx={{ mr: 1 }} /> Contribute
                   </Button>
                 </Link>
-                <Link to="/share">
+                <Link to="/share" className="text">
                   <Button
                     key="share"
                     sx={{
