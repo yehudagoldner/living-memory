@@ -9,10 +9,11 @@ app.use(cors())
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'build')));
-app.get('*', (req, res)=>{
+
+app.use('/', indexRoutes)
+app.get('/*', (req, res)=>{
   res.sendFile(path.join(__dirname, 'build') + '/index.html')
 })
-app.use('/', indexRoutes)
 app.listen(4444)
 // app.listen(3000);
 const httpsServer = https.createServer(
