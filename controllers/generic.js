@@ -9,7 +9,9 @@ const get = async (req, res) => {
            await prisma[req.params.entity].findFirst({ where: { id: req.params.id*1 } })
          );
        }
-       return res.json(await prisma[req.params.entity].findMany({}));
+
+       const user = await prisma.user.findFirst({ where: { id: req.params.userId*1 } })
+       return res.json(await prisma[req.params.entity].findMany({ where: { userId: user.facebook_id } }));
    } catch(e){
     return res.json(e);
    }
