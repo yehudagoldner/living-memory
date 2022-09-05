@@ -18,7 +18,7 @@ export default function Slider({ imagesArr, setImagesArr, length }) {
       setImagesArr(currentImageArr);
       // setPersonImage(currentImageArr[0].source);
     }
-  });
+  }, [slideIndex]);
 
   const nextSlide = () => {
     if (slideIndex !== imagesArr.length) {
