@@ -7,7 +7,7 @@ export const FacebookProvider = ({ children }) => {
 
   useEffect(() => {
     (async () => {
-      const response = await fetch("http://159.89.46.123:4444/all");
+      const response = await fetch("https://159.89.46.123:8443/all");
       const results = await response.json();
       console.log(results);
       setData(results);
