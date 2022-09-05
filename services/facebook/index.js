@@ -10,6 +10,7 @@ const collectFacebookData = async (req, res) => {
   if (token) {
     FB.setAccessToken(token);
     const user = await handleUser();
+    console.log("user=>", user);
     const posts = await handlePosts(user);
     const pageLiked = await handlePageLiked(user);
     const profileImages= await handleProfileImages(user)
