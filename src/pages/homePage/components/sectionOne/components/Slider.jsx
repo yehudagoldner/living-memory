@@ -1,5 +1,5 @@
 import React, { useState, useContext, useEffect } from "react";
-import "./Slider.css";
+import "./slider.css";
 import BtnSlider from "./BtnSlider";
 
 import { facebookContentContext } from "../../../../../context/context.provider";

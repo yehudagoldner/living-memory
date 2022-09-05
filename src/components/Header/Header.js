@@ -1,5 +1,6 @@
 import * as React from "react";
-import { useState } from "react";
+import { useLocation } from "react-router-dom";
+import { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
@@ -51,197 +52,210 @@ const StyledToolbar = styled(Toolbar)(({ theme }) => ({
 }));
 
 const Header = () => {
+  const location = useLocation();
+  const path = location.pathname;
+  const [display, setDisplay] = useState(path !== "/wizard" ? true : false);
+  useEffect(()=>{
+    setDisplay(path !== "/wizard" ? true : false)
+  }, [path])
+  
   return (
-    <ThemeProvider theme={darkThemeSec}>
-      <Box sx={{ mt: "-34px", flexGrow: 1 }}>
-        <AppBar position="static">
-          <StyledToolbar>
-            <Box sx={{ ml: "80px" }}>
-              <Typography
-                variant="h4"
-                fontWeight="bold"
-                noWrap
-                component="div"
-                sx={{
-                  flexGrow: 1,
-                  alignSelf: "flex-end",
-                  mt: "20px",
-                  mb: "10px",
-                }}
-              >
-                Nicholas Drake 1948-1974
-              </Typography>
-              <Typography
-                variant="h6"
-                noWrap
-                component="div"
-                sx={{
-                  flexGrow: 1,
-                  alignSelf: "flex-end",
-                  lineHeight: "130%",
-                  fontSize: "17px",
-                }}
-              >
-                Gone yet not forgotten, although we are apart, your <br />
-                memory lives within us, forever in our hearts.
-              </Typography>
+    <>
+      {display && (
+        <div>
+          <ThemeProvider theme={darkThemeSec}>
+            <Box sx={{ mt: "-34px", flexGrow: 1 }}>
+              <AppBar position="static">
+                <StyledToolbar>
+                  <Box sx={{ ml: "80px" }}>
+                    <Typography
+                      variant="h4"
+                      fontWeight="bold"
+                      noWrap
+                      component="div"
+                      sx={{
+                        flexGrow: 1,
+                        alignSelf: "flex-end",
+                        mt: "20px",
+                        mb: "10px",
+                      }}
+                    >
+                      Nicholas Drake 1948-1974
+                    </Typography>
+                    <Typography
+                      variant="h6"
+                      noWrap
+                      component="div"
+                      sx={{
+                        flexGrow: 1,
+                        alignSelf: "flex-end",
+                        lineHeight: "130%",
+                        fontSize: "17px",
+                      }}
+                    >
+                      Gone yet not forgotten, although we are apart, your <br />
+                      memory lives within us, forever in our hearts.
+                    </Typography>
+                  </Box>
+                  {/* <IconButton size="small" aria-label="search" color="inherit"> */}
+                  <Box
+                    sx={{
+                      flexGrow: 1,
+                      justifyContent: "center",
+                      display: { xs: "none", lg: "flex" },
+                      flexWrap: "wrap",
+                    }}
+                  >
+                    <List sx={{ display: "flex", mt: "29px" }}>
+                      <Link className="decor" to="/timeline">
+                        <ListItem
+                          key="timeline"
+                          disablePadding
+                          sx={{
+                            textAlign: "center",
+                            flexDirection: "column",
+                            backgroundColor: "#87CEEB",
+                            p: "10px 15.49px",
+                            "&:hover": {
+                              backgroundColor: "#B6D0E2",
+                            },
+                          }}
+                        >
+                          <ViewTimelineSharpIcon />
+                          <Typography>Timeline</Typography>
+                        </ListItem>
+                      </Link>
+
+                      <Link className="decor" to="/bookview">
+                        <ListItem
+                          key="book-view"
+                          disablePadding
+                          sx={{
+                            textAlign: "center",
+                            flexDirection: "column",
+                            backgroundColor: "#87C6CB",
+                            minWidth: "18%",
+                            p: "10px 10px",
+                            "&:hover": {
+                              backgroundColor: "#B6D0E2",
+                            },
+                          }}
+                        >
+                          <MenuBookSharpIcon />
+                          <Typography>BookView</Typography>
+                        </ListItem>
+                      </Link>
+
+                      <Link className="decor" to="/photos">
+                        <ListItem
+                          key="photos"
+                          disablePadding
+                          sx={{
+                            textAlign: "center",
+                            flexDirection: "column",
+                            backgroundColor: "#87CEEB",
+                            p: "10px 20.68px",
+                            "&:hover": {
+                              backgroundColor: "#B6D0E2",
+                            },
+                          }}
+                        >
+                          <PortraitSharpIcon /> <Typography>Photos</Typography>
+                        </ListItem>
+                      </Link>
+
+                      <Link className="decor" to="/videos">
+                        <ListItem
+                          key="videos"
+                          disablePadding
+                          sx={{
+                            textAlign: "center",
+                            flexDirection: "column",
+                            backgroundColor: "#87CEEB",
+                            p: "10px 21.26px",
+                            "&:hover": {
+                              backgroundColor: "#B6D0E2",
+                            },
+                          }}
+                        >
+                          <SlideshowSharpIcon /> <Typography>Vidoes</Typography>
+                        </ListItem>
+                      </Link>
+
+                      <Link className="decor" to="/candles">
+                        <ListItem
+                          key="candles"
+                          disablePadding
+                          sx={{
+                            textAlign: "center",
+                            flexDirection: "column",
+                            backgroundColor: "#87CEEB",
+                            p: "10px 16.15px",
+                            "&:hover": {
+                              backgroundColor: "#B6D0E2",
+                            },
+                          }}
+                        >
+                          <img
+                            src={CandleImage}
+                            alt="candle-image"
+                            className="candle-image"
+                          />{" "}
+                          <Typography>Candles</Typography>
+                        </ListItem>
+                      </Link>
+
+                      <Link className="decor" to="/text">
+                        <ListItem
+                          key="text"
+                          disablePadding
+                          sx={{
+                            textAlign: "center",
+                            flexDirection: "column",
+                            backgroundColor: "#87CEEB",
+                            p: "10px 31.05px",
+                            "&:hover": {
+                              backgroundColor: "#B6D0E2",
+                            },
+                          }}
+                        >
+                          <EditSharpIcon /> <Typography>Text</Typography>
+                        </ListItem>
+                      </Link>
+
+                      <Link className="decor" to="/likes">
+                        <ListItem
+                          key="likes"
+                          disablePadding
+                          sx={{
+                            textAlign: "center",
+                            flexDirection: "column",
+                            backgroundColor: "#87CEEB",
+                            p: "10px 26.98px",
+                            "&:hover": {
+                              backgroundColor: "#B6D0E2",
+                            },
+                          }}
+                        >
+                          <ThumbUpSharpIcon /> <Typography>Likes</Typography>
+                        </ListItem>
+                      </Link>
+                    </List>
+                  </Box>
+                  {/* </IconButton> */}
+                  <IconButton
+                    size="large"
+                    aria-label="display more actions"
+                    edge="end"
+                    color="inherit"
+                  ></IconButton>
+                </StyledToolbar>
+              </AppBar>
             </Box>
-            {/* <IconButton size="small" aria-label="search" color="inherit"> */}
-            <Box
-              sx={{
-                flexGrow: 1,
-                justifyContent: "center",
-                display: { xs: "none", lg: "flex" },
-                flexWrap: "wrap",
-              }}
-            >
-              <List sx={{ display: "flex", mt: "29px" }}>
-                <Link className="decor" to="/timeline">
-                  <ListItem
-                    key="timeline"
-                    disablePadding
-                    sx={{
-                      textAlign: "center",
-                      flexDirection: "column",
-                      backgroundColor: "#87CEEB",
-                      p: "10px 15.49px",
-                      "&:hover": {
-                        backgroundColor: "#B6D0E2",
-                      },
-                    }}
-                  >
-                    <ViewTimelineSharpIcon />
-                    <Typography>Timeline</Typography>
-                  </ListItem>
-                </Link>
-
-                <Link className="decor" to="/bookview">
-                  <ListItem
-                    key="book-view"
-                    disablePadding
-                    sx={{
-                      textAlign: "center",
-                      flexDirection: "column",
-                      backgroundColor: "#87C6CB",
-                      minWidth: "18%",
-                      p: "10px 10px",
-                      "&:hover": {
-                        backgroundColor: "#B6D0E2",
-                      },
-                    }}
-                  >
-                    <MenuBookSharpIcon />
-                    <Typography>BookView</Typography>
-                  </ListItem>
-                </Link>
-
-                <Link className="decor" to="/photos">
-                  <ListItem
-                    key="photos"
-                    disablePadding
-                    sx={{
-                      textAlign: "center",
-                      flexDirection: "column",
-                      backgroundColor: "#87CEEB",
-                      p: "10px 20.68px",
-                      "&:hover": {
-                        backgroundColor: "#B6D0E2",
-                      },
-                    }}
-                  >
-                    <PortraitSharpIcon /> <Typography>Photos</Typography>
-                  </ListItem>
-                </Link>
-
-                <Link className="decor" to="/videos">
-                  <ListItem
-                    key="videos"
-                    disablePadding
-                    sx={{
-                      textAlign: "center",
-                      flexDirection: "column",
-                      backgroundColor: "#87CEEB",
-                      p: "10px 21.26px",
-                      "&:hover": {
-                        backgroundColor: "#B6D0E2",
-                      },
-                    }}
-                  >
-                    <SlideshowSharpIcon /> <Typography>Vidoes</Typography>
-                  </ListItem>
-                </Link>
-
-                <Link className="decor" to="/candles">
-                  <ListItem
-                    key="candles"
-                    disablePadding
-                    sx={{
-                      textAlign: "center",
-                      flexDirection: "column",
-                      backgroundColor: "#87CEEB",
-                      p: "10px 16.15px",
-                      "&:hover": {
-                        backgroundColor: "#B6D0E2",
-                      },
-                    }}
-                  >
-                    <img
-                      src={CandleImage}
-                      alt="candle-image"
-                      className="candle-image"
-                    />{" "}
-                    <Typography>Candles</Typography>
-                  </ListItem>
-                </Link>
-
-                <Link className="decor" to="/text">
-                  <ListItem
-                    key="text"
-                    disablePadding
-                    sx={{
-                      textAlign: "center",
-                      flexDirection: "column",
-                      backgroundColor: "#87CEEB",
-                      p: "10px 31.05px",
-                      "&:hover": {
-                        backgroundColor: "#B6D0E2",
-                      },
-                    }}
-                  >
-                    <EditSharpIcon /> <Typography>Text</Typography>
-                  </ListItem>
-                </Link>
-
-                <Link className="decor" to="/likes">
-                  <ListItem
-                    key="likes"
-                    disablePadding
-                    sx={{
-                      textAlign: "center",
-                      flexDirection: "column",
-                      backgroundColor: "#87CEEB",
-                      p: "10px 26.98px",
-                      "&:hover": {
-                        backgroundColor: "#B6D0E2",
-                      },
-                    }}
-                  >
-                    <ThumbUpSharpIcon /> <Typography>Likes</Typography>
-                  </ListItem>
-                </Link>
-              </List>
-            </Box>
-            {/* </IconButton> */}
-            <IconButton
-              size="large"
-              aria-label="display more actions"
-              edge="end"
-              color="inherit"
-            ></IconButton>
-          </StyledToolbar>
-        </AppBar>
-      </Box>
-    </ThemeProvider>
+          </ThemeProvider>
+        </div>
+      )}
+    </>
   );
 };
 

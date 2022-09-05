@@ -1,68 +1,47 @@
-import FriendList from "./pages/friendList/friendList.jsx";
-import Contribute from "./pages/contribute/contribute.jsx";
 // import UploadFile from "./pages/upload file/uploadFile.jsx";
 import "./App.css";
 import React from "react";
-import Navbar from "../src/components/Navbar/Navbar";
-import Header from "../src/components/Header/Header";
-import Email from "../src/components/Email/Email";
-import PopUp from "../src/components/PopUp/PopUp";
-// import Wizard from "../src/components/Wizard/Wizard";
-import HomePage from "../src/pages/homePage/HomePage";
-import Footer from "./components/Footer/Footer";
-import AddPhoto from "./pages/homePage/linkComponents/addingPhoto/AddPhoto";
-import DrawerAppBar from "./components/Navbar/Navbar.js";
-import Book from "./components/Book/Book";
+import Wizard from "../src/components/Wizard/Wizard";
 import {
   Switch,
-  Route,
-  BrowserRouter,
-  Routes,
-  Navigate,
+  Route,  
 } from "react-router-dom";
 import { FacebookProvider } from "./context/context.provider.jsx";
 
 import "./App.css";
 // import EmailButton from "./components/EmailButton/EmailButton";
-import TermsOfUse from "./components/TermsOfUse/TermsOfUse";
+
+import UserRoutes from "./UserRoutes.js";
 // import AddPhoto from "./pages/homePage/linkComponents/addingPhoto/AddPhoto";
 // import AddWriting from "./pages/homePage/linkComponents/addingWriting/AddWriting";
 
+
 function App() {
   return (
+<<<<<<< HEAD
     <FacebookProvider>
       <div className="App">
         <Navbar />
         {/* <Header /> */}
+=======
+    <div className="App">
+    
+>>>>>>> 0578df523ac7e05b90b534b824cedf5a3a8cb930
         {/* <FriendList /> */}
         {/* <Contribute /> */}
         {/* <UploadFile /> */}
         {/* <BrowserRouter> */}
         {/* <Navbar /> */}
+
         <Switch>
-          {/* <Route exact path="/wizard" component={Wizard} /> */}
-          <Route exact path="/details/:imageID" component={PopUp} />
-          <Route exact path="/bookview" component={Book} />
-
-          <Route exact path="/" component={HomePage} />
-          <Route exact path="/contribute" component={Contribute} />
-          <Route exact path="/photos" component={AddPhoto} />
-
-          <Route exact path="/email">
-            <Email />
-          </Route>
-          <Route exact path="/terms_of_use">
-            <TermsOfUse />
-          </Route>
-
-          <Route exact path="/invite_friends">
-            <FriendList />
-          </Route>
+          <Route exact path="/" component={Wizard} />
+          
+            {/* <Route exact path="/bookview" component={Book} /> */}
+            <Route exact path="/:userid/" component={UserRoutes} />                      
         </Switch>
         {/* <Footer /> */}
         {/* </BrowserRouter> */}
       </div>
-    </FacebookProvider>
   );
 }
 
