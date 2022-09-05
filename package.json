@@ -8,11 +8,8 @@
     "@emotion/styled": "^11.10.0",
     "@mui/icons-material": "^5.8.4",
     "@mui/material": "^5.10.2",
-<<<<<<< HEAD
-=======
     "@mui/styles": "^5.10.2",
     "@mui/x-date-pickers": "^5.0.0-beta.7",
->>>>>>> 7668fd5ac14665b2d912a41f5f9836053c546cff
     "@prisma/client": "^4.2.1",
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13.3.0",
