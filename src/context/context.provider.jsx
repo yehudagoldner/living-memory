@@ -1,4 +1,5 @@
 import React, { useEffect, useState, createContext } from "react";
+import config from '../config'
 
 export const facebookContentContext = createContext(null);
 
@@ -7,7 +8,7 @@ export const FacebookProvider = ({ children, userid }) => {
 
   useEffect(() => {
     (async () => {
-      const response = await fetch(`https://159.89.46.123:8443/${userid}/all`);
+      const response = await fetch(`${config.API_ENDPOINT}/${userid}/all`);
       const results = await response.json();
       console.log(results);
       setData(results);
