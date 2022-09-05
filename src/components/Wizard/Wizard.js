@@ -13,14 +13,18 @@ import "./Wizard.css";
 const Form = () => {
   const [page, setPage] = useState(0);
   const [formData, setFormData] = useState({
-    userName: "",
+    facebookUserName: "",
+    facebookEmail: "",
     firstName: "",
     lastName: "",
     email: "",
     about: "",
+    birthDate: "",
+    passingDate: "",
+    about: "",
   });
 
-//   const FormTitles = ["Personal info", "Memorial info", "finish"];
+  //   const FormTitles = ["Personal info", "Memorial info", "finish"];
 
   const PageDisplay = () => {
     switch (page) {
@@ -65,7 +69,8 @@ const Form = () => {
         <div className="body">
           {PageDisplay()}
           <div className="footer">
-            <Button
+            <Button sx={{mr:"5px"}}
+              className="prev-btn"
               variant="outlined"
               disabled={page === 0}
               onClick={() => {
@@ -74,7 +79,8 @@ const Form = () => {
             >
               Prev
             </Button>
-            <Button
+            <Button sx={{ml:"5px"}}
+              className="next-btn"
               variant="outlined"
               onClick={() => {
                 if (page === 2) {

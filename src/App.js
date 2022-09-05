@@ -12,12 +12,9 @@ import HomePage from "../src/pages/homePage/HomePage";
 import Footer from "./components/Footer/Footer";
 import AddPhoto from "./pages/homePage/linkComponents/addingPhoto/AddPhoto";
 import DrawerAppBar from "./components/Navbar/Navbar.js";
-<<<<<<< HEAD
-// import Book from "./components/Book/Book";
-=======
-import Book from "./components/Book/Book";
+
 import Candles from "./pages/candles/Candles";
->>>>>>> 15f2369c45314002ef766cc0ea4d1fa121925efa
+
 import {
   Switch,
   Route,
@@ -33,20 +30,71 @@ import TermsOfUse from "./components/TermsOfUse/TermsOfUse";
 // import AddPhoto from "./pages/homePage/linkComponents/addingPhoto/AddPhoto";
 // import AddWriting from "./pages/homePage/linkComponents/addingWriting/AddWriting";
 
+// render() {
+//   const App = () => {
+//       return (
+//         <FacebookProvider>
+//         <div className="App">
+//           <Navbar />
+//         <Header />
+//           {/* <FriendList /> */}
+//           {/* <Contribute /> */}
+//           {/* <UploadFile /> */}
+//           {/* <BrowserRouter> */}
+//           {/* <Navbar /> */}
+//           <Switch>
+//             <Route exact path="/wizard" component={Wizard} />
+//             <Route exact path="/details/:imageID" component={PopUp} />
+//             {/* <Route exact path="/bookview" component={Book} /> */}
+
+//             <Route exact path="/" component={HomePage} />
+//             <Route exact path="/contribute" component={Contribute} />
+//             <Route exact path="/photos" component={AddPhoto} />
+//             <Route exact path="/candles" component={Candles} />
+
+//             <Route exact path="/email">
+//               <Email />
+//             </Route>
+//             <Route exact path="/terms_of_use">
+//               <TermsOfUse />
+//             </Route>
+
+//             <Route exact path="/invite_friends">
+//               <FriendList />
+//             </Route>
+//           </Switch>
+//           {/* <Footer /> */}
+//           {/* </BrowserRouter> */}
+//         </div>
+//       </FacebookProvider>
+//       )
+//   }
+
+//   return (
+//       <Router className="App">
+//           <Header />
+//               <Switch>
+//               <Route exact path="/wizard" component={Wizard} />
+//                   <Route component={App}/>
+//               </Switch>
+//       </Router>
+//   );
+// };
+
 function App() {
   return (
     <FacebookProvider>
       <div className="App">
         <Navbar />
-        <Header />
+        {<Header />}
         {/* <FriendList /> */}
         {/* <Contribute /> */}
         {/* <UploadFile /> */}
         {/* <BrowserRouter> */}
         {/* <Navbar /> */}
+
         <Switch>
-          <Route exact path="/wizard" component={Wizard} />
-          <Route exact path="/details/:imageID" component={PopUp} />
+          <Route path="/wizard" component={Wizard} />
           {/* <Route exact path="/bookview" component={Book} /> */}
 
           <Route exact path="/" component={HomePage} />
@@ -64,6 +112,7 @@ function App() {
           <Route exact path="/invite_friends">
             <FriendList />
           </Route>
+          <Route exact path="/details/:imageID" component={PopUp} />
         </Switch>
         {/* <Footer /> */}
         {/* </BrowserRouter> */}
