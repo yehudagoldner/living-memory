@@ -27,7 +27,7 @@ function App() {
         {/* <Navbar /> */}
 
         <Switch>
-          <Route path="/" component={Wizard} />
+          <Route exact path="/" component={Wizard} />
           
             {/* <Route exact path="/bookview" component={Book} /> */}
             <Route exact path="/:userid/" component={UserRoutes} />                      
