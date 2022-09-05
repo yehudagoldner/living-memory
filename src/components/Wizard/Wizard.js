@@ -2,12 +2,9 @@ import React, { useState } from "react";
 import PersonalInfo from "./PersonalInfo";
 import MemorialInfo from "./MemorialInfo";
 import Finish from "./Finish";
-import Box from "@mui/material/Box";
-import Step from "@mui/material/Step";
-import StepLabel from "@mui/material/StepLabel";
+
 import Button from "@mui/material/Button";
-import Typography from "@mui/material/Typography";
-import TextField from "@mui/material/TextField";
+
 import "./Wizard.css";
 
 const Form = () => {
@@ -84,8 +81,8 @@ const Form = () => {
               variant="outlined"
               onClick={() => {
                 if (page === 2) {
-                  window.confirm("FORM SUBMITTED");
                   console.log(formData);
+                  window.location = "/get_facebook_data"
                 } else {
                   setPage((currPage) => currPage + 1);
                 }
