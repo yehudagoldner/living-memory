@@ -17,7 +17,7 @@ app.route("/pagesLiked").get(async (req, res)=> res.json(await prisma.pagesLiked
 app.route("/profileImages").get(async (req, res)=> res.json(await prisma.profileImages.findMany({})))
 app.route("/user").get(async (req, res)=> res.json(await prisma.user.findFirst({})))
 app.get("/:userId/all", async (req, res) => {
-  const user = await prisma.user.findFirst({ where: { id: req.params.userId } })
+  const user = await prisma.user.findFirst({ where: { facebook_id: req.params.userId } })
   res.json( {
    posts: await prisma.post.findMany({ where: { userId: user.facebook_id } }),
    pagesLiked: await prisma.pagesLiked.findMany({ where: { userId: user.facebook_id } }),
