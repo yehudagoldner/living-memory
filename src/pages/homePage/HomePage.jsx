@@ -12,25 +12,14 @@ const HomePage = () => {
 
   return (
     <div className="homePage-container">
-<<<<<<< HEAD
-      <>
-=======
-      
-
-      {data && (                
+      {data && (
         <>
-
->>>>>>> 0578df523ac7e05b90b534b824cedf5a3a8cb930
-        <SectionOne />
-        <SectionTwo />
-        <SectionThree />
-        <SectionFour />
-      </>
-<<<<<<< HEAD
-=======
+          <SectionOne />
+          <SectionTwo />
+          <SectionThree />
+          <SectionFour />
+        </>
       )}
-
->>>>>>> 0578df523ac7e05b90b534b824cedf5a3a8cb930
     </div>
   );
 };
