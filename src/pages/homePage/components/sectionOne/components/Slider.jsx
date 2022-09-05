@@ -12,15 +12,13 @@ export default function Slider({ imagesArr, setImagesArr, length }) {
   useEffect(() => {
     if (data.profileImages) {
       const currentImageArr = JSON.parse(data.profileImages[slideIndex].image);
-      console.log(data);
+      // console.log(data);
       // setImagesArr(currentImageArr);
-      // console.log(currentImageArr);
+
       setImagesArr(currentImageArr);
       // setPersonImage(currentImageArr[0].source);
     }
   });
-
-  console.log(imagesArr.length);
 
   const nextSlide = () => {
     if (slideIndex !== imagesArr.length) {
@@ -43,6 +41,10 @@ export default function Slider({ imagesArr, setImagesArr, length }) {
     <div className="container-slider">
       {/* <div className="slide active-anim"></div> */}
       <BtnSlider moveSlide={prevSlide} direction={"prev"} />
+      <div className="square"></div>
+      <div className="square"></div>
+      <div className="square"></div>
+      <div className="square"></div>
       <BtnSlider moveSlide={nextSlide} direction={"next"} />
 
       {/* <div className="container-dots">

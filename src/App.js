@@ -33,7 +33,7 @@ function App() {
     <FacebookProvider>
       <div className="App">
         <Navbar />
-        <Header />
+        {/* <Header /> */}
         {/* <FriendList /> */}
         {/* <Contribute /> */}
         {/* <UploadFile /> */}
@@ -59,7 +59,7 @@ function App() {
             <FriendList />
           </Route>
         </Switch>
-        <Footer />
+        {/* <Footer /> */}
         {/* </BrowserRouter> */}
       </div>
     </FacebookProvider>

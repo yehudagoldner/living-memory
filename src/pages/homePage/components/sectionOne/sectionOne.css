@@ -111,9 +111,16 @@
 .scroller-container {
   position: absolute;
   width: 200px;
-  top: 120%;
+  top: 470px;
   z-index: 50;
-  right: 60%;
+  left: 16%;
+}
+
+.slider-wrapper {
+  position: absolute;
+  top: 500px;
+
+  left: 29%;
 }
 
 @media only screen and (max-width: 1050px) {
@@ -121,12 +128,12 @@
     flex-direction: column;
   }
   .scroller-container {
-    top: 112%;
+    top: 120%;
   }
 }
 
 @media only screen and (max-width: 500px) {
   .scroller-container {
-    right: 40%;
+    right: 30%;
   }
 }
