@@ -2,15 +2,10 @@ import React from "react";
 import "./slider.css";
 
 export default function BtnSlider({ direction, moveSlide }) {
-  console.log(direction, moveSlide);
   return (
-    <button
+    <div
       onClick={moveSlide}
-      className={direction === "next" ? "btn-slide next" : "btn-slide prev"}
-    >
-      <div
-        className={direction === "next" ? "arrow-right" : "arrow-left"}
-      ></div>
-    </button>
+      className={direction === "next" ? "arrow-right" : "arrow-left"}
+    ></div>
   );
 }

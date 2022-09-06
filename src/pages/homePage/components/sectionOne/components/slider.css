@@ -4,11 +4,11 @@
   overflow: hidden;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); */
   display: flex;
-  gap: 30px;
+  gap: 10px;
   position: absolute;
   z-index: 90;
-  top: 470px;
-  left: 170px;
+  /* top: 470px;
+  right: 80%; */
 }
 
 .slide {
@@ -43,19 +43,50 @@
   transform: translateY(-60%);
 }
 
-.container-dots {
-  position: absolute;
-  bottom: 10px;
-  left: 50%;
-  transform: translateX(-50%);
+.scroller {
   display: flex;
+  flex-direction: row;
+  gap: 12px;
+  align-content: center;
 }
-/* .dot {
-  height: 20px;
+
+.square {
+  height: 12px;
   width: 12px;
   background-color: rgb(243, 241, 241);
-  margin: 4px;
+  margin-top: 4px;
+  opacity: 70%;
 }
-.dot.active {
-  background: rgb(113, 215, 215);
+
+/* .square:hover {
+  background-color: rgb(113, 215, 215);
+  cursor: pointer;
 } */
+
+.arrow-right {
+  width: 0;
+  height: 0;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  opacity: 70%;
+  border-left: 15px solid rgb(243, 241, 241);
+}
+
+.arrow-left {
+  width: 0;
+  height: 0;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  opacity: 70%;
+  border-right: 15px solid rgb(243, 241, 241);
+}
+
+.arrow-left:hover {
+  border-right: 15px solid rgb(113, 215, 215);
+  cursor: pointer;
+}
+
+.arrow-right:hover {
+  border-left: 15px solid rgb(113, 215, 215);
+  cursor: pointer;
+}

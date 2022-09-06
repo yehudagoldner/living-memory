@@ -9,8 +9,11 @@ const PersonalInfo = ({ formData, setFormData }) => {
     <>
       <div className="sign-up-container">
         {" "}
-        <Typography sx={{fontWeight:"bold", fontSize:"24px", mb:"15px"}}>Information of the perpetuator</Typography>
+        <Typography sx={{ fontWeight: "bold", fontSize: "24px", mb: "30px" }}>
+          Information of the perpetuator
+        </Typography>
         <Box
+          className="personal-info-container"
           component="form"
           sx={{
             "& > :not(style)": { m: 1, width: "25ch" },

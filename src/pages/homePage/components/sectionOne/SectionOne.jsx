@@ -1,6 +1,6 @@
 import React, { useEffect, useContext } from "react";
 import { useState } from "react";
-import Scroller from "./components/Scroller";
+
 import Slider from "./components/Slider";
 import { facebookContentContext } from "../../../../context/context.provider";
 import "./sectionOne.css";
@@ -42,6 +42,14 @@ const SectionOne = () => {
 
             <div className="continue">Continue reading &gt; </div>
           </div>
+          <div className="scroller-container">
+            {data.profileImages && (
+              <Slider
+                {...{ imagesArr, setImagesArr }}
+                length={data.profileImages.length}
+              />
+            )}
+          </div>
           <div className="image-box">
             <img className="flowers" src="frame.png" />
             <div className="profile-pics-wrapper">
@@ -53,12 +61,6 @@ const SectionOne = () => {
             </div>
           </div>
         </div>
-        {data.profileImages && (
-          <Slider
-            {...{ imagesArr, setImagesArr }}
-            length={data.profileImages.length}
-          />
-        )}
       </div>
     </>
   );

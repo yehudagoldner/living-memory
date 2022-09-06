@@ -9,46 +9,68 @@ const Finish = ({ formData }) => {
         <Typography sx={{fontWeight:"bold", fontSize:"24px", mb:"15px"}}>Details Summary</Typography>
       </Box> */}
 
-      <Box
-        sx={{
-          display: "flex",
-          flexDirection: "row",
-          justifyContent: "space-between",
-          maxWidth: "900px",
-     
-        }}
-      >
-        <Typography className=""
-          sx={{
-            fontWeight: "bold",
-            fontSize: "28px",
-
-            right: "250px",
-          }}
+      <Box className="summary-container">
+        <Typography
+          className="summary-container-grid-1"
+          sx={{ fontWeight: "bold", fontSize: "24px" }}
         >
           Personal Info:
         </Typography>
         <Typography
-          sx={{
-            fontWeight: "bold",
-            fontSize: "22px",
-          }}
+          className="summary-container-grid-2"
+          sx={{ fontSize: "18px" }}
         >
-          First Name: {formData.firstName}
+          <span className="summary-subTitle"> First Name:</span>{" "}
+          {formData.firstName}
+        </Typography>
+
+        <Typography
+          className="summary-container-grid-3"
+          sx={{ fontSize: "18px" }}
+        >
+          <span className="summary-subTitle"> Last Name:</span>{" "}
+          {formData.lastName}
+        </Typography>
+
+        <Typography
+          className="summary-container-grid-4"
+          sx={{ fontSize: "18px", mb: "40px" }}
+        >
+          <span className="summary-subTitle"> Email:</span> {formData.email}
+        </Typography>
+
+        <Typography
+          className="summary-container-grid-5"
+          sx={{ fontWeight: "bold", fontSize: "22px" }}
+        >
+          Memorial Info:
+        </Typography>
+
+        <Typography className="summary-container-grid-6">
+          <span className="summary-subTitle">Facebook User Name: </span>{" "}
+          {formData.facebookUserName}
+        </Typography>
+
+        <Typography className="summary-container-grid-7">
+          <span className="summary-subTitle">Facebook Email: </span>{" "}
+          {formData.facebookEmail}
+        </Typography>
+
+        <Typography className="summary-container-grid-8">
+          <span className="summary-subTitle">Date of birth:</span>{" "}
+          {formData.birthDate}
+        </Typography>
+        <Typography className="summary-container-grid-9">
+          <span className="summary-subTitle">Date of passing away:</span>{" "}
+          {formData.passingDate}
+        </Typography>
+        <Typography className="summary-container-grid-10">
+          <span for="about" className="summary-subTitle">
+            About the momorialzed person:
+          </span>
+          <span className="summary-about">{formData.about}</span>
         </Typography>
       </Box>
-
-      <Typography
-        sx={{
-          fontWeight: "bold",
-          fontSize: "22px",
-          mt: "40px",
-          display: "flex",
-          justifyContent: "center",
-        }}
-      >
-        Last Name: {formData.lastName}
-      </Typography>
     </>
   );
 };
