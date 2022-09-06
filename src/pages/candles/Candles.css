@@ -1,3 +1,7 @@
+* {
+  box-sizing: border-box;
+}
+
 .Candles {
   padding-top: 50px;
   max-width: 60%;
@@ -56,7 +60,8 @@
   transition: all 100ms ease-in-out;
   border: 3px solid #fff;
 }
-.Candles img:hover {
+.Candles img:hover,
+.Candles .active {
   border: 3px solid #eb3911;
 }
 .form-section {
@@ -65,14 +70,13 @@
 .Candles input,
 .Candles textarea {
   width: 100%;
-  margin: 10px;
+  margin: 10px 0;
   padding: 5px;
 }
 .Candles .submit-button {
   width: 100%;
   padding: 25px;
-  margin: 20px 15px;
-
+  margin: 20px 0;
   font-size: 20px;
   background-color: #eb3911;
   border: 1px solid #fff;

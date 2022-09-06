@@ -9,7 +9,7 @@ import { facebookContentContext } from "../../context/context.provider";
 import "./Candles.css";
 
 function Candles() {
-  const [img, setImg] = useState("");
+  const [icon, setIcon] = useState("candle");
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
   const [message, setMessage] = useState("");
@@ -28,16 +28,16 @@ function Candles() {
         {
           method: "POST",
           body: JSON.stringify({
-            name: name,
-            img: img,
-            description: description,
+            name,
+            icon,
+            description,
           }),
         }
       );
       let resJson = await res.json();
       if (res.status === 200) {
         setName("");
-        setImg("");
+        setIcon("candle");
         setDescription("");
         setMessage("Candle created successfully");
       } else {
@@ -88,22 +88,16 @@ function Candles() {
       {/* Form */}
       <form onSubmit={handleSubmit} className="form-section">
         Choose: <br />
-        <a
-          href="#"
-          type="checkbox"
-          value={img}
-          onChange={(e) => setImg(e.target.value)}
-        >
-          <img src={candle}></img>
-        </a>
-        <a
-          href="#"
-          type="checkbox"
-          value={img}
-          onChange={(e) => setImg(e.target.value)}
-        >
-          <img src={flower}></img>
-        </a>
+        <img
+          onClick={(e) => setIcon("candle")}
+          className={icon === "candle" ? "active" : ""}
+          src={candle}
+        ></img>
+        <img
+          onClick={(e) => setIcon("flower")}
+          className={icon === "flower" ? "active" : ""}
+          src={flower}
+        ></img>
         <br></br>
         <p>Name: </p>
         <input
@@ -111,7 +105,6 @@ function Candles() {
           value={name}
           onChange={(e) => setName(e.target.value)}
         />
-        {/* {name} */}
         <br />
         <p>Description: </p>
         <textarea
@@ -119,10 +112,7 @@ function Candles() {
           rows="5"
           value={description}
           onChange={(e) => setDescription(e.target.value)}
-        >
-          {/* {description} */}
-        </textarea>
-        {description}
+        ></textarea>
         <br></br>
         <button className="submit-button" type="submit">
           Submit
