@@ -17,7 +17,7 @@ app.get('/*', (req, res)=>{
 app.listen(4444)
 // app.listen(3000);
 const httpsServer = https.createServer(
-  { key: fs.readFileSync("key.pem"), cert: fs.readFileSync("cert.pem") },
+  { key: fs.readFileSync("/etc/letsencrypt/live/living-memory.xyz/privkey.pem"), cert: fs.readFileSync("/etc/letsencrypt/live/living-memory.xyz/cert.pem") },
   app
 );
 httpsServer.listen(8443);
