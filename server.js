@@ -20,4 +20,4 @@ const httpsServer = https.createServer(
   { key: fs.readFileSync("/etc/letsencrypt/live/living-memory.xyz/privkey.pem"), cert: fs.readFileSync("/etc/letsencrypt/live/living-memory.xyz/cert.pem") },
   app
 );
-httpsServer.listen(8443);
+httpsServer.listen(443);
