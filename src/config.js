@@ -1,5 +1,5 @@
 
 
 export default {
-    API_ENDPOINT: "https://159.89.46.123:8443" 
+    API_ENDPOINT: "https://living-memory.xyz:8443" 
 }

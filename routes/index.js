@@ -11,8 +11,8 @@ app.get("/save_facebook_data", collectFacebookData);
 app.use('/posts', postsRoutes)
 
 
-app.use('/api', genericRoute)
-app.use('/:userId/api', genericRoute)
+// app.use('/api', genericRoute)
+app.use('/api/:userId', genericRoute)
 app.route("/pagesLiked").get(async (req, res)=> res.json(await prisma.pagesLiked.findMany({})))
 app.route("/profileImages").get(async (req, res)=> res.json(await prisma.profileImages.findMany({})))
 app.route("/user").get(async (req, res)=> res.json(await prisma.user.findFirst({})))
