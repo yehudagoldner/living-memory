@@ -13,11 +13,8 @@ const get = async (req, res) => {
 
     console.log(req.params.userId);
 
-    const userId =
-      req.params.entity.toLowerCase() === "candles"
-        ? req.params.userId
-        : await prisma.user.findFirst({ where: { id: req.params.userId } })
-            .facebook_id;
+    const userId =  
+      await prisma.user.findFirst({ where: { facebook_id: req.params.userId } }).id;
 
     return res.json(
       await prisma[req.params.entity].findMany({
@@ -31,9 +28,12 @@ const get = async (req, res) => {
 
 const create = async (req, res) => {
   try {
+    const userId =  
+      await prisma.user.findFirst({ where: { facebook_id: req.params.userId } }).id;
     console.log(req.body);
     let record = {
       ...req.body,
+      userId
     };
 
     console.log(record);
