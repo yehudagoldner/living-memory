@@ -4,6 +4,7 @@ import { useState, useEffect, useContext } from "react";
 import candle from "./assets/candle.png";
 import flower from "./assets/flower.png";
 import icon from "./assets/icon.png";
+import config from "../../config";
 import { facebookContentContext } from "../../context/context.provider";
 
 import "./Candles.css";
@@ -24,7 +25,7 @@ function Candles() {
     try {
       console.log(data);
       let res = await fetch(
-        "http://159.89.46.123:4444/10158842065863652/api/Candles/",
+        `${config.API_ENDPOINT}/api/10158842065863652/Candles/`,
         {
           method: "POST",
           body: JSON.stringify({

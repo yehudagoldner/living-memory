@@ -8,7 +8,8 @@ import axios from "axios";
 
 const SectionThree = ({ userid }) => {
   axios
-    .get(`https://living-memory.xyz:8443/api/${userid}/candles`)
+    // .get(`https://living-memory.xyz:8443/api/${userid}/candles`)
+    .get(`https://living-memory.xyz:8443/api/1/candles`)
     // .get("http://159.89.46.123:4444/api/Candles/")
     .then(handleResponse);
 
