@@ -28,9 +28,13 @@ const get = async (req, res) => {
 
 const create = async (req, res) => {
   try {    
+    const user = await prisma.user.findFirst({ where: { facebook_id: req.body.userId } });
+     console.log('user=>',user.id);
+    
     console.log(req.body);
     let record = {
       ...req.body,      
+      userId:user.id,      
     };
 
     console.log(record);
@@ -59,5 +63,7 @@ const del = async (req, res) => {
     return res.json(e);
   }
 };
+
+
 
 module.exports = { get, create, del };

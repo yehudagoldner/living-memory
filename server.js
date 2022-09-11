@@ -21,6 +21,11 @@ app.get('/*', (req, res)=>{
 if(process.env.DEVMODE) {
   
   app.listen(4444);
+  const httpsServer = https.createServer(
+    { key: fs.readFileSync("key.pem"), cert: fs.readFileSync("cert.pem") },
+    app
+  );
+  httpsServer.listen(8443);
 } else {
 
   const httpsServer = https.createServer(

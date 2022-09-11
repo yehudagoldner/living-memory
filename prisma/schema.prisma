@@ -19,7 +19,7 @@ model User {
   email         String?
   createdAt     DateTime?       @default(now())
   updatedAt     DateTime?       @updatedAt
-  creator       Int
+  creator       Int?
   Posts         Post[]
   ProfileImages ProfileImages[]
   PagesLiked    PagesLiked[]

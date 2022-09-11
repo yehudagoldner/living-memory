@@ -34,7 +34,7 @@ function Candles(props) {
             'Accept': 'application/json',
             'Content-Type': 'application/json'
           },
-          body: JSON.stringify({
+          body: JSON.stringify({            
             name,
             icon,
             text,
