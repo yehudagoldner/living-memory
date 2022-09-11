@@ -8,7 +8,7 @@ export const FacebookProvider = ({ children, userid }) => {
 
   useEffect(() => {
     (async () => {
-      const response = await fetch(`${config.API_ENDPOINT}/${userid}/all`);
+      const response = await fetch(`${config.API_ENDPOINT}/api/${userid}/all`);
       const results = await response.json();
       console.log(results);
       setData(results);
