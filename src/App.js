@@ -26,9 +26,8 @@ function App() {
 
       <Route exact path="/" component={Wizard} />
 
-      {/* <Route exact path="/bookview" component={Book} /> */}
-
-      <Route  path="/:userid/" component={UserRoutes} />
+      {/* <Route exact path="/bookview" component={Book} /> */}    
+      <Route path="/:userid/" component={UserRoutes} />
 
       {/* <Footer /> */}
       {/* </BrowserRouter> */}
