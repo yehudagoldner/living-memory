@@ -12,13 +12,13 @@ import "./Candles.css";
 function Candles(props) {  
   const [icon, setIcon] = useState("candle");
   const [name, setName] = useState("");
-  const [description, setDescription] = useState("");
+  const [text, setText] = useState("");
   const [message, setMessage] = useState("");
   const [data, setData] = useContext(facebookContentContext);
-
+  const userId = props.match.params.userid;  
   useEffect(() => {
     
-    console.log(props, data);
+    console.log(userId, data);
   }, []);
 
   let handleSubmit = async (e) => {
@@ -29,10 +29,15 @@ function Candles(props) {
         `${config.API_ENDPOINT}/api/10158842065863652/Candles/`,
         {
           method: "POST",
+          headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+          },
           body: JSON.stringify({
             name,
             icon,
-            description,
+            text,
+            userId
           }),
         }
       );
@@ -40,7 +45,7 @@ function Candles(props) {
       if (res.status === 200) {
         setName("");
         setIcon("candle");
-        setDescription("");
+        setText("");
         setMessage("Candle created successfully");
       } else {
         setMessage("Some error occured");
@@ -112,8 +117,8 @@ function Candles(props) {
         <textarea
           cols="40"
           rows="5"
-          value={description}
-          onChange={(e) => setDescription(e.target.value)}
+          value={text}
+          onChange={(e) => setText(e.target.value)}
         ></textarea>
         <br></br>
         <button className="submit-button" type="submit">

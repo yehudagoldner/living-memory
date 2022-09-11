@@ -27,13 +27,10 @@ const get = async (req, res) => {
 };
 
 const create = async (req, res) => {
-  try {
-    const userId =  
-      await prisma.user.findFirst({ where: { facebook_id: req.params.userId } }).id;
+  try {    
     console.log(req.body);
     let record = {
-      ...req.body,
-      userId
+      ...req.body,      
     };
 
     console.log(record);
