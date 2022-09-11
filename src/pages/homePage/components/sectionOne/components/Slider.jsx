@@ -12,11 +12,7 @@ export default function Slider({ imagesArr, setImagesArr, length }) {
   useEffect(() => {
     if (data.profileImages) {
       const currentImageArr = JSON.parse(data.profileImages[slideIndex].image);
-      // console.log(data);
-      // setImagesArr(currentImageArr);
-
       setImagesArr(currentImageArr);
-      // setPersonImage(currentImageArr[0].source);
     }
   }, [slideIndex]);
 
