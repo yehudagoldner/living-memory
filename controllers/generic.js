@@ -16,7 +16,7 @@ const get = async (req, res) => {
     const userId =
       req.params.entity.toLowerCase() === "candles"
         ? req.params.userId
-        : await prisma.user.findFirst({ where: { id: req.params.userId } })
+        : await prisma.user.findMany({ where: { id: req.params.userId } })
             .facebook_id;
 
     return res.json(
