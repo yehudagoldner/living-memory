@@ -9,7 +9,8 @@ const collectFacebookData = async (req, res) => {
   const token = req.query.access_token;
   if (token) {
     FB.setAccessToken(token);
-    const user = await handleUser();
+    console.log(JSON.parse(req.cookies.userData));
+    const user = await handleUser(JSON.parse(req.cookies.userData));
     try {
       const posts = await handlePosts(user);
     } catch(e){
@@ -39,8 +40,8 @@ const collectFacebookData = async (req, res) => {
 };
 
 const login = async (req, res) => {
-  console.log(req.cookies)
-  // await saveInternalUserData()
+  
+  
   // res.json(req.cookies)
   res.send(`
   <script>

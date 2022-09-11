@@ -12,12 +12,11 @@ app.use('/posts', postsRoutes)
 
 
 // app.use('/api', genericRoute)
-app.use('/api/:userId', genericRoute)
+
 app.route("/api/pagesLiked").get(async (req, res)=> res.json(await prisma.pagesLiked.findMany({})))
 app.route("/api/profileImages").get(async (req, res)=> res.json(await prisma.profileImages.findMany({})))
 app.route("/api/user").get(async (req, res)=> res.json(await prisma.user.findFirst({})))
-app.get("/api/:userId/all", async (req, res) => {
-  
+app.get("/api/:userId/all", async (req, res) => {  
   const user = await prisma.user.findFirst({ where: { facebook_id: req.params.userId } })
   res.json( {
    posts: await prisma.post.findMany({ where: { userId: user.id } }),
@@ -25,6 +24,7 @@ app.get("/api/:userId/all", async (req, res) => {
    profileImages: await prisma.profileImages.findMany({ where: { userId: user.id } }),   
   })
 });
+app.use('/api/:userId', genericRoute)
 app.get("/all", async (req, res) => {
   res.json( {
    posts: await prisma.post.findMany({}),

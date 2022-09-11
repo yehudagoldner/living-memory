@@ -35,9 +35,7 @@ const create = async (req, res) => {
     let record = {
       ...req.body,      
       userId:user.id,      
-    };
-
-    console.log(record);
+    };    
     res.json(
       await prisma[req.params.entity].upsert({
         where: { id: req.params.id ? req.params.id * 1 : -1 },
