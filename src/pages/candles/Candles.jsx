@@ -3,12 +3,13 @@ import React from "react";
 import { useState, useEffect, useContext } from "react";
 import candle from "./assets/candle.png";
 import flower from "./assets/flower.png";
+import config from "../../config"
 import icon from "./assets/icon.png";
 import { facebookContentContext } from "../../context/context.provider";
 
 import "./Candles.css";
 
-function Candles() {
+function Candles(props) {  
   const [icon, setIcon] = useState("candle");
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
@@ -16,7 +17,8 @@ function Candles() {
   const [data, setData] = useContext(facebookContentContext);
 
   useEffect(() => {
-    console.log(data);
+    
+    console.log(props, data);
   }, []);
 
   let handleSubmit = async (e) => {
@@ -24,7 +26,7 @@ function Candles() {
     try {
       console.log(data);
       let res = await fetch(
-        "http://159.89.46.123:4444/10158842065863652/api/Candles/",
+        `${config.API_ENDPOINT}/api/10158842065863652/Candles/`,
         {
           method: "POST",
           body: JSON.stringify({
