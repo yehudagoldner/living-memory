@@ -95,6 +95,9 @@ const Form = () => {
 
   return (
     <section className="form">
+      <h1 className="wizard-title">
+      Create a memorial site for your loved one in one click
+      </h1>
       <div className="progressbar">
         <div
           className={page === 0 ? "progress-steps active" : "progress-steps"}

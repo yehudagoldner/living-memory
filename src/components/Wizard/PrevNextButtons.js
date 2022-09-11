@@ -7,6 +7,7 @@ const NextButton = ({
   formData,
   setCheckLevelOneForm,
   setCheckLevelTwoForm,
+  onSubmit
 }) => {
   const nextClick = () => {
     switch (page) {
@@ -51,6 +52,10 @@ const NextButton = ({
         variant="outlined"
         onClick={() => {
           nextClick();
+          if(onSubmit){
+            onSubmit()
+          }
+
         }}
       >
         {page === 2 ? "Submit" : "Next"}

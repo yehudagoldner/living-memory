@@ -1,7 +1,10 @@
 import React from "react";
+import Cookies from 'universal-cookie';
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import NextButton from "./PrevNextButtons";
+
+const cookies = new Cookies();
 
 const Finish = ({
   formData,
@@ -82,8 +85,9 @@ const Finish = ({
       <NextButton
         formData={formData}
         setFormData={setFormData}
-        checkLevelOneForm={checkLevelOneForm}
-        setCheckLevelOneForm={setCheckLevelOneForm}
+        onSubmit={()=>{
+          cookies.set('userData', JSON.stringify(formData));
+        }}
         page={page}
         setPage={setPage}
       />

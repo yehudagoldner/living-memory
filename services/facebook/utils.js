@@ -12,6 +12,10 @@ const facebookApiReq = (query) =>
     });
   });
 
+  const saveInternalUserData = async (data) => {
+    return await prisma.Creator.create({data})
+  };
+
 const getUser = async () => {
   const user = await facebookApiReq("/me?fields=id,name,email");
   return user;
@@ -137,4 +141,4 @@ const handleProfileImages = async (user)=>{
 }
 
 
-module.exports = { handlePageLiked, handlePosts, handleProfileImages, handleUser}
+module.exports = { handlePageLiked, handlePosts, handleProfileImages, handleUser, saveInternalUserData}

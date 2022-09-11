@@ -13,9 +13,13 @@ model User {
   id            Int             @id @default(autoincrement())
   facebook_id   String          @unique
   name          String
+  birthDay      DateTime?
+  deathDay      DateTime?
+  about         String?         @db.LongText
   email         String?
   createdAt     DateTime?       @default(now())
   updatedAt     DateTime?       @updatedAt
+  creator       Int
   Posts         Post[]
   ProfileImages ProfileImages[]
   PagesLiked    PagesLiked[]
@@ -24,14 +28,24 @@ model User {
   @@index([facebook_id, email, name, createdAt, updatedAt])
 }
 
+model Creator {
+  id       Int     @id @default(autoincrement())
+  firstName     String?
+  lastName     String?
+  password String?
+  email    String?
+
+  @@index([firstName, lastName, email])
+}
+
 model Candles {
-  id     Int     @id @default(autoincrement())
-  user   User    @relation(fields: [userId], references: [id], onDelete: Cascade)
-  userId Int
-  icon   String?
-  name String?
-  text   String? @db.LongText
-  posted_date DateTime?  @default(now())
+  id          Int       @id @default(autoincrement())
+  user        User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId      Int
+  icon        String?
+  name        String?
+  text        String?   @db.LongText
+  posted_date DateTime? @default(now())
 
   @@index([name, posted_date])
   @@index([userId])
