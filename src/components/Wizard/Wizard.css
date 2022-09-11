@@ -106,15 +106,52 @@
   gap: 20px;
   grid-template-areas:
     "username email"
+    "usernameval emailval"
     "borntitle passingtitle"
     "borndate passingdate"
-    "about about";
+    "borndateval passingdateval"
+    "about about"
+    
 }
 
 .memorial-info-grid-1 {
   grid-area: username;
   margin-bottom: 20px;
 }
+
+.memorial-info-grid-8 {
+  grid-area: usernameval;
+  /* margin-bottom: 20px; */
+}
+
+.memorial-info-grid-8:nth-child(2){
+  margin-top:-20px;
+}
+.memorial-info-grid-9 {
+  grid-area: emailval;
+  /* margin-bottom: 20px; */
+}
+.memorial-info-grid-9:nth-child(4){
+  margin-top:-20px;
+}
+.memorial-info-grid-10 {
+  grid-area: borndateval;
+  margin-bottom: 20px;
+}
+.memorial-info-grid-10:nth-child(7){
+  margin-top:-20px;
+}
+.memorial-info-grid-11 {
+  grid-area: passingdateval;
+  margin-bottom: 20px;
+}
+.memorial-info-grid-11:nth-child(10){
+  margin-top:-20px;
+}
+.memorial-info-grid-12:nth-child(12){
+  margin-top:-20px;
+}
+
 .memorial-info-grid-2 {
   grid-area: email;
   margin-bottom: 20px;
@@ -226,4 +263,11 @@
   text-align: left;
   flex: 3;
   line-height: 1.7;
+}
+
+.personal-info-firstname-validation{
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: flex-start;
 }

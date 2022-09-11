@@ -6,9 +6,16 @@ import Finish from "./Finish";
 import Button from "@mui/material/Button";
 
 import "./Wizard.css";
+import { Typography } from "@mui/material";
+import NextButton from "./PrevNextButtons";
 
 const Form = () => {
   const [page, setPage] = useState(0);
+
+  const [checkLevelOneForm, setCheckLevelOneForm] = useState(false);
+  const [checkLevelTwoForm, setCheckLevelTwoForm] = useState(false);
+  console.log(checkLevelOneForm);
+
   const [formData, setFormData] = useState({
     facebookUserName: "",
     facebookEmail: "",
@@ -23,16 +30,66 @@ const Form = () => {
 
   //   const FormTitles = ["Personal info", "Memorial info", "finish"];
 
-  const PageDisplay = () => {
+  // const required = {
+  //   value: true,
+  //   message: "This field is required",
+  // };
+
+  // const nextClick = () => {
+  //   switch (page) {
+  //     case 0:
+  //       !formData.firstName || !formData.lastName || !formData.email
+  //         ? setCheckLevelOneForm(true)
+  //         : setPage((currPage) => currPage + 1);
+  //     case 1:
+  //       !formData.facebookUserName ||
+  //       !formData.facebookEmail ||
+  //       !formData.birthDate ||
+  //       !formData.passingDate ||
+  //       !formData.about
+  //         ? setCheckLevelOneForm(true)
+  //         : setPage((currPage) => currPage + 1);
+  //     case 2:
+  //       window.location = "/get_facebook_data";
+  //       console.log(formData);
+  //   }
+  // };
+
+  const PageDisplay = (checkLevelOneForm, checkLevelTwoForm) => {
     switch (page) {
       case 0:
-        return <PersonalInfo formData={formData} setFormData={setFormData} />;
+        return (
+          <PersonalInfo
+            formData={formData}
+            setFormData={setFormData}
+            checkLevelOneForm={checkLevelOneForm}
+            setPage={setPage}
+            page={page}
+            setCheckLevelOneForm={setCheckLevelOneForm}
+          />
+        );
 
       case 1:
-        return <MemorialInfo formData={formData} setFormData={setFormData} />;
+        return (
+          <MemorialInfo
+            formData={formData}
+            setFormData={setFormData}
+            checkLevelTwoForm={checkLevelTwoForm}
+            setPage={setPage}
+            page={page}
+            setCheckLevelTwoForm={setCheckLevelTwoForm}
+          />
+        );
 
       case 2:
-        return <Finish formData={formData} />;
+        return (
+          <Finish
+            formData={formData}
+            setFormData={setFormData}
+            setPage={setPage}
+            page={page}
+          />
+        );
     }
   };
 
@@ -64,9 +121,10 @@ const Form = () => {
           <h1></h1>
         </div>
         <div className="body">
-          {PageDisplay()}
-          <div className="footer">
-            <Button sx={{mr:"5px"}}
+          {PageDisplay(checkLevelOneForm, checkLevelTwoForm)}
+          {/* <div className="footer">
+            <Button
+              sx={{ mr: "5px" }}
               className="prev-btn"
               variant="outlined"
               disabled={page === 0}
@@ -76,21 +134,17 @@ const Form = () => {
             >
               Prev
             </Button>
-            <Button sx={{ml:"5px"}}
+            <Button
+              sx={{ ml: "5px" }}
               className="next-btn"
               variant="outlined"
               onClick={() => {
-                if (page === 2) {
-                  console.log(formData);
-                  window.location = "/get_facebook_data"
-                } else {
-                  setPage((currPage) => currPage + 1);
-                }
+                nextClick();
               }}
             >
               {page === 2 ? "Submit" : "Next"}
             </Button>
-          </div>
+          </div> */}
         </div>
       </div>
     </section>

@@ -1,8 +1,16 @@
 import React from "react";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
+import NextButton from "./PrevNextButtons";
 
-const Finish = ({ formData }) => {
+const Finish = ({
+  formData,
+  setFormData,
+  checkLevelOneForm,
+  page,
+  setPage,
+  setCheckLevelOneForm,
+}) => {
   return (
     <>
       {/* <Box sx={{ mb:"55px"}}>
@@ -71,6 +79,14 @@ const Finish = ({ formData }) => {
           <span className="summary-about">{formData.about}</span>
         </Typography>
       </Box>
+      <NextButton
+        formData={formData}
+        setFormData={setFormData}
+        checkLevelOneForm={checkLevelOneForm}
+        setCheckLevelOneForm={setCheckLevelOneForm}
+        page={page}
+        setPage={setPage}
+      />
     </>
   );
 };
