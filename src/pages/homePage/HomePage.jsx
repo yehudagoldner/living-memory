@@ -7,7 +7,7 @@ import SectionFour from "./components/sectionFour/SectionFour";
 import AddView from "./components/reusable/AddView";
 import { facebookContentContext } from "../../context/context.provider";
 
-const HomePage = () => {
+const HomePage = (props) => {
   const [data, setData] = useContext(facebookContentContext);
 
   return (
@@ -16,7 +16,7 @@ const HomePage = () => {
         <>
           <SectionOne />
           <SectionTwo />
-          <SectionThree />
+          <SectionThree userid={props.match.params.userid} />
           <SectionFour />
         </>
       )}

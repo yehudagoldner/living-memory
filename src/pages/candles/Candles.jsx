@@ -5,6 +5,7 @@ import candle from "./assets/candle.png";
 import flower from "./assets/flower.png";
 import config from "../../config"
 import icon from "./assets/icon.png";
+import config from "../../config";
 import { facebookContentContext } from "../../context/context.provider";
 
 import "./Candles.css";
