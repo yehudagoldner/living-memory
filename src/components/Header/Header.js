@@ -51,14 +51,14 @@ const StyledToolbar = styled(Toolbar)(({ theme }) => ({
   },
 }));
 
-const Header = () => {
+const Header = ({ userid }) => {
   const location = useLocation();
   const path = location.pathname;
   const [display, setDisplay] = useState(path !== "/wizard" ? true : false);
-  useEffect(()=>{
-    setDisplay(path !== "/wizard" ? true : false)
-  }, [path])
-  
+  useEffect(() => {
+    setDisplay(path !== "/wizard" ? true : false);
+  }, [path]);
+
   return (
     <>
       {display && (
@@ -126,7 +126,7 @@ const Header = () => {
                         </ListItem>
                       </Link>
 
-                      <Link className="decor" to="/bookview">
+                      <Link className="decor" to={`/${userid}/bookview`} >
                         <ListItem
                           key="book-view"
                           disablePadding
@@ -146,7 +146,7 @@ const Header = () => {
                         </ListItem>
                       </Link>
 
-                      <Link className="decor" to="/photos">
+                      <Link className="decor" to={`/${userid}/photos`}>
                         <ListItem
                           key="photos"
                           disablePadding
@@ -164,7 +164,7 @@ const Header = () => {
                         </ListItem>
                       </Link>
 
-                      <Link className="decor" to="/videos">
+                      <Link className="decor" to={`/${userid}/videos`} >
                         <ListItem
                           key="videos"
                           disablePadding
@@ -182,7 +182,7 @@ const Header = () => {
                         </ListItem>
                       </Link>
 
-                      <Link className="decor" to="/candles">
+                      <Link className="decor" to={`/${userid}/candles`}>
                         <ListItem
                           key="candles"
                           disablePadding
@@ -223,7 +223,7 @@ const Header = () => {
                         </ListItem>
                       </Link>
 
-                      <Link className="decor" to="/likes">
+                      <Link className="decor" to={`/${userid}/likes`} >
                         <ListItem
                           key="likes"
                           disablePadding

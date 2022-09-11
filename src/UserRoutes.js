@@ -16,8 +16,8 @@ export default function UserRoutes(props) {
   const userid = props.match.params.userid;  
   return (
     <FacebookProvider userid={userid}>
+      {<Header {...{userid}} />}
       
-      {<Header />}
       {/* <Route exact path="/bookview" component={Book} /> */}
       <Switch>
         <Route exact path={`/:userid/candles`} component={Candles} />
