@@ -4,12 +4,13 @@ import "./sectionThree.css";
 import { IoIosArrowForward } from "react-icons/io";
 import Memorial from "../reusable/Memorial";
 import View from "../reusable/View";
+import Candles from "../../../candles/Candles";
 
-const SectionThree = () => {
+const SectionThree = (props) => {
   return (
     <div className="sectionThree-container">
       <h3>
-        <div className="img-title"> </div>
+        <div className="img-title"> {props.img}</div>
         {"\u00a0\u00a0"}
         Nick, I will never ever forget you! Nick, I will never ever forget you!
       </h3>
@@ -21,8 +22,11 @@ const SectionThree = () => {
         <br></br>Little things I should have said and done, I just never took
         the time, But you were always on my mind. Little things I should have
         said".
+        {props.description}
       </p>
-      <div>-Janis Ian, May 15, 2012-</div>
+      <div>
+        -{props.name}Janis Ian,{props.date} May 15, 2012-
+      </div>
 
       <br></br>
       <div className="icon-container">

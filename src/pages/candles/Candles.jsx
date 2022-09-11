@@ -1,13 +1,74 @@
 import React from "react";
+// import React from "react";
+import { useState, useEffect, useContext } from "react";
 import candle from "./assets/candle.png";
 import flower from "./assets/flower.png";
 import icon from "./assets/icon.png";
+import { facebookContentContext } from "../../context/context.provider";
+
 import "./Candles.css";
 
-export default function Candles() {
-  function handleSubmit(event) {
-    console.log(event);
-  }
+function Candles() {
+  const [icon, setIcon] = useState("candle");
+  const [name, setName] = useState("");
+  const [description, setDescription] = useState("");
+  const [message, setMessage] = useState("");
+  const [data, setData] = useContext(facebookContentContext);
+
+  useEffect(() => {
+    console.log(data);
+  }, []);
+
+  let handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      console.log(data);
+      let res = await fetch(
+        "http://159.89.46.123:4444/10158842065863652/api/Candles/",
+        {
+          method: "POST",
+          body: JSON.stringify({
+            name,
+            icon,
+            description,
+          }),
+        }
+      );
+      let resJson = await res.json();
+      if (res.status === 200) {
+        setName("");
+        setIcon("candle");
+        setDescription("");
+        setMessage("Candle created successfully");
+      } else {
+        setMessage("Some error occured");
+      }
+    } catch (err) {
+      console.log(err);
+    }
+  };
+  // function handleSubmit(response) {
+  //   response.preventDefault();
+  //   // console.log(event);
+  //   console.log("Submit");
+  //   console.log("name", name);
+  //   console.log("description", description);
+  //   console.log("img", img);
+  // }
+
+  // function handleNameChange(event) {
+  //   setName(event.target.value);
+  //   console.log(name);
+  // }
+  // function handleDescriptionChange(event) {
+  //   setDescription(event.target.value);
+  //   console.log("description", description);
+  // }
+  // function handleClickOnImg(event) {
+  //   if (event.target.value === "checked") {
+  //     setImg(event.target.value);
+  //   }
+  // }
 
   return (
     <div className="Candles">
@@ -23,23 +84,43 @@ export default function Candles() {
       </div>
       <br />
       <hr />
-      <div className="form-section" onSubmit={handleSubmit}>
+
+      {/* Form */}
+      <form onSubmit={handleSubmit} className="form-section">
         Choose: <br />
-        <a href="#">
-          <img src={candle}></img>
-        </a>
-        <a href="#">
-          <img src={flower}></img>
-        </a>
+        <img
+          onClick={(e) => setIcon("candle")}
+          className={icon === "candle" ? "active" : ""}
+          src={candle}
+        ></img>
+        <img
+          onClick={(e) => setIcon("flower")}
+          className={icon === "flower" ? "active" : ""}
+          src={flower}
+        ></img>
         <br></br>
         <p>Name: </p>
-        <input type="text"></input>
+        <input
+          type="text"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+        />
         <br />
         <p>Description: </p>
-        <textarea name="Text1" cols="40" rows="5"></textarea>
+        <textarea
+          cols="40"
+          rows="5"
+          value={description}
+          onChange={(e) => setDescription(e.target.value)}
+        ></textarea>
         <br></br>
-        <button className="submit-button">Submit</button>
-      </div>
+        <button className="submit-button" type="submit">
+          Submit
+        </button>
+        <div className="message">{message ? <p>{message}</p> : null}</div>
+      </form>
     </div>
   );
 }
+
+export default Candles;

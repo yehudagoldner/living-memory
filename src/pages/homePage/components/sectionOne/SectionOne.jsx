@@ -22,7 +22,7 @@ const SectionOne = () => {
       // console.log(currentImageArr);
       setPersonImage(currentImageArr[0].source);
     }
-  }, [data]);
+  }, []);
 
   return (
     <>
