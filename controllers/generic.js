@@ -27,7 +27,7 @@ const get = async (req, res) => {
 };
 
 const create = async (req, res) => {
-  try {    
+     
     const user = await prisma.user.findFirst({ where: { facebook_id: req.body.userId } });
      console.log('user=>',user.id);
     
@@ -44,10 +44,7 @@ const create = async (req, res) => {
         create: record,
         update: record,
       })
-    );
-  } catch (e) {
-    return res.json(e);
-  }
+    );  
 };
 
 const updatePost = async (req, res) => {};
