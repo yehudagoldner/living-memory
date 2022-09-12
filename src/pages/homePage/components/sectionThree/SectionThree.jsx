@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext, useEffect } from "react";
 import Button from "../reusable/Button";
 import "./sectionThree.css";
 import { IoIosArrowForward } from "react-icons/io";
@@ -7,21 +7,19 @@ import View from "../reusable/View";
 import axios from "axios";
 
 const SectionThree = ({ userid }) => {
-  axios
-    // .get(`https://living-memory.xyz:8443/api/${userid}/candles`)
-    .get(`https://living-memory.xyz:8443/api/1/candles`)
-    // .get("http://159.89.46.123:4444/api/Candles/")
-    .then(handleResponse);
-
-  function handleResponse(response) {
-    console.log(response.target.value);
-  }
+  useEffect(() => {
+    (async () => {
+      let res = await axios.get(
+        `https://living-memory.xyz:8443/api/10158842065863652/candles`
+      );
+      console.log(1234);
+    })();
+  }, []);
 
   return (
     <div className="sectionThree-container">
       <h3>
         <div className="img-title"> </div>
-        {"\u00a0\u00a0"}
         Nick, I will never ever forget you! Nick, I will never ever forget you!
       </h3>
       <p>
@@ -34,7 +32,6 @@ const SectionThree = ({ userid }) => {
       </p>
       <div>-Janis Ian, May 15, 2012-</div>
 
-      <br></br>
       <div className="icon-container">
         <IoIosArrowForward />
       </div>
