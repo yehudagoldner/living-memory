@@ -58,7 +58,7 @@ const NextButton = ({
 
         }}
       >
-        {page === 2 ? "Submit" : "Next"}
+        {page === 2 ? "Get data from Facebook" : "Next"}
       </Button>
     </div>
   );

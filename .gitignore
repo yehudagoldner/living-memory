@@ -10,7 +10,7 @@ key.pem
 package-lock.json
 # testing
 /coverage
-
+src/config
 # production
 /build
 

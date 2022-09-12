@@ -18,7 +18,7 @@ app.get('/*', (req, res)=>{
   res.sendFile(path.join(__dirname, 'build') + '/index.html')
 })
 
-if(process.env.DEVMODE) {
+if(process.env.DEVMODE==="true") {
   
   app.listen(4444);
   const httpsServer = https.createServer(

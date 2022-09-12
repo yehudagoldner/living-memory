@@ -27,7 +27,7 @@ const get = async (req, res) => {
 };
 
 const create = async (req, res) => {
-  try {    
+     
     const user = await prisma.user.findFirst({ where: { facebook_id: req.body.userId } });
      console.log('user=>',user.id);
     
@@ -35,19 +35,14 @@ const create = async (req, res) => {
     let record = {
       ...req.body,      
       userId:user.id,      
-    };
-
-    console.log(record);
+    };    
     res.json(
       await prisma[req.params.entity].upsert({
         where: { id: req.params.id ? req.params.id * 1 : -1 },
         create: record,
         update: record,
       })
-    );
-  } catch (e) {
-    return res.json(e);
-  }
+    );  
 };
 
 const updatePost = async (req, res) => {};
