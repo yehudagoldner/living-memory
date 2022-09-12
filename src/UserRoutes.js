@@ -8,7 +8,7 @@ import AddPhoto from "./pages/homePage/linkComponents/addingPhoto/AddPhoto";
 import FriendList from "./pages/friendList/friendList.jsx";
 import Contribute from "./pages/contribute/contribute.jsx";
 import Candles from "./pages/candles/Candles";
-import TermsOfUse from "./components/TermsOfUse/TermsOfUse";
+
 import { Switch, Route } from "react-router-dom";
 import { FacebookProvider } from "./context/context.provider.jsx";
 
@@ -28,9 +28,7 @@ export default function UserRoutes(props) {
         <Route exact path="/:userid:/email">
           <Email />
         </Route>
-        <Route exact path="/:userid/terms_of_use">
-          <TermsOfUse />
-        </Route>
+        
 
         <Route exact path="/:userid/invite_friends">
           <FriendList />

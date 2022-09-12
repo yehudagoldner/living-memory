@@ -3,6 +3,7 @@ import "./App.css";
 import React from "react";
 import Navbar from "../src/components/Navbar/Navbar";
 import Wizard from "../src/components/Wizard/Wizard";
+import TermsOfUse from "./components/TermsOfUse/TermsOfUse";
 import Candles from "./pages/candles/Candles";
 import { Switch, Route } from "react-router-dom";
 import { FacebookProvider } from "./context/context.provider.jsx";
@@ -25,7 +26,9 @@ function App() {
       {/* <Navbar /> */}
 
       <Route exact path="/" component={Wizard} />
-
+      <Route exact path="/terms_of_use">
+          <TermsOfUse />
+        </Route>
       {/* <Route exact path="/bookview" component={Book} /> */}    
       <Route path="/:userid/" component={UserRoutes} />
 
