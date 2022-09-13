@@ -29,11 +29,11 @@ model User {
 }
 
 model Creator {
-  id       Int     @id @default(autoincrement())
-  firstName     String?
-  lastName     String?
-  password String?
-  email    String?
+  id        Int     @id @default(autoincrement())
+  firstName String?
+  lastName  String?
+  password  String?
+  email     String?
 
   @@index([firstName, lastName, email])
 }
@@ -43,6 +43,7 @@ model Candles {
   user        User      @relation(fields: [userId], references: [id], onDelete: Cascade)
   userId      Int
   icon        String?
+  subject     String?
   name        String?
   text        String?   @db.LongText
   posted_date DateTime? @default(now())
