@@ -1,40 +1,71 @@
-import React from "react";
+import React, { useContext, useEffect, useState } from "react";
 import Button from "../reusable/Button";
 import "./sectionThree.css";
 import { IoIosArrowForward } from "react-icons/io";
 import Memorial from "../reusable/Memorial";
 import View from "../reusable/View";
 import axios from "axios";
+import config from "../../../../config";
+import Moment from "react-moment";
 
 const SectionThree = ({ userid }) => {
-  axios
-    // .get(`https://living-memory.xyz:8443/api/${userid}/candles`)
-    .get(`https://living-memory.xyz:8443/api/1/candles`)
-    // .get("http://159.89.46.123:4444/api/Candles/")
-    .then(handleResponse);
+  const [candles, setCandles] = useState([]);
+  const [currentCandle, setCurrentCandle] = useState(0)
 
-  function handleResponse(response) {
-    console.log(response.target.value);
-  }
+  let candlesData;
+  useEffect(() => {
+    (async () => {
+      const { data } = await axios.get(
+        `${config.API_ENDPOINT}/api/10158842065863652/candles`
+      );
+      
+
+        
+      if(data[0]) {
+        data[0].active = true;
+      }
+
+      window.setInterval(()=>setCurrentCandle((prev)=>{        
+        return prev === data.length-1 ? 0 : ++prev
+      }), 3000)
+      setCandles(data)
+    })();
+  }, []);
+  
+  console.log(candles);
+  useEffect(() => {
+    if(!candles.length) return 
+    const prev = currentCandle === 0 ? candles.length-1: currentCandle-1
+    candles[prev].active = false
+    if(candles[currentCandle]) {
+      candles[currentCandle].active = true
+    } else {      
+      candles[0].active = true      
+    }
+  }, [currentCandle])
+
+  
 
   return (
     <div className="sectionThree-container">
       <h3>
-        <div className="img-title"> </div>
-        {"\u00a0\u00a0"}
-        Nick, I will never ever forget you! Nick, I will never ever forget you!
+        <div className="img-title">{/* <img src= */}</div>
+        We will never ever forget you!
       </h3>
-      <p>
-        "Little things I should have said and done, I just never took the time,
-        But you were always on my mind.<br></br>Little things I should have said
-        and done, I just never took the time, But you were always on my mind
-        <br></br>Little things I should have said and done, I just never took
-        the time, But you were always on my mind. Little things I should have
-        said".
-      </p>
-      <div>-Janis Ian, May 15, 2012-</div>
 
-      <br></br>
+      {candles.map((candle) => (
+        <div
+          className={`candle ${candle.active ? "active" : ""}`}
+          id={`candle${candle.id}`}
+        >
+          <p>{candle.text}</p>
+          <div>
+            - {candle.name},{" "}
+            <Moment format="MM/YYYY">{candle.posted_date}</Moment> -
+          </div>
+        </div>
+      ))}
+
       <div className="icon-container">
         <IoIosArrowForward />
       </div>

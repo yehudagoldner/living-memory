@@ -10,15 +10,14 @@ import { facebookContentContext } from "../../context/context.provider";
 
 import "./Candles.css";
 
-function Candles(props) {  
+function Candles(props) {
   const [icon, setIcon] = useState("candle");
   const [name, setName] = useState("");
   const [text, setText] = useState("");
   const [message, setMessage] = useState("");
   const [data, setData] = useContext(facebookContentContext);
-  const userId = props.match.params.userid;  
+  const userId = props.match.params.userid;
   useEffect(() => {
-    
     console.log(userId, data);
   }, []);
 
@@ -31,14 +30,14 @@ function Candles(props) {
         {
           method: "POST",
           headers: {
-            'Accept': 'application/json',
-            'Content-Type': 'application/json'
+            Accept: "application/json",
+            "Content-Type": "application/json",
           },
-          body: JSON.stringify({            
+          body: JSON.stringify({
             name,
             icon,
             text,
-            userId
+            userId,
           }),
         }
       );
@@ -114,7 +113,7 @@ function Candles(props) {
           onChange={(e) => setName(e.target.value)}
         />
         <br />
-        <p>Description: </p>
+        <p>A few works from your heart: </p>
         <textarea
           cols="40"
           rows="5"
