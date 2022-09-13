@@ -5,7 +5,12 @@
   width: auto;
   position: relative;
 }
-
+.sectionThree-container .candle {
+  display: none;
+}
+.sectionThree-container .candle.active {
+  display: block;
+}
 .sectionThree-container h3 {
   text-align: center;
 }

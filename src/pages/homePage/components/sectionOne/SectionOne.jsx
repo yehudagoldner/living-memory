@@ -56,7 +56,7 @@ const SectionOne = () => {
               {/* <img className="profile-pics" src={personImage} alt="" /> */}
               <img
                 className="profile-pics"
-                srcset={imagesArr.map((img) => `${img.source} ${img.width}w`)}
+                srcSet={imagesArr.map((img) => `${img.source} ${img.width}w`)}
               />
             </div>
           </div>
