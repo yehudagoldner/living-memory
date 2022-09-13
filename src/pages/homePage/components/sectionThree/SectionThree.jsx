@@ -9,40 +9,42 @@ import config from "../../../../config";
 import Moment from "react-moment";
 
 const SectionThree = ({ userid }) => {
-  const [data, setData] = useState([]);
+  const [candles, setCandles] = useState([]);
+  const [currentCandle, setCurrentCandle] = useState(0)
 
   let candlesData;
   useEffect(() => {
     (async () => {
-      candlesData = await axios.get(
+      const { data } = await axios.get(
         `${config.API_ENDPOINT}/api/10158842065863652/candles`
       );
-      console.log("candlesData", candlesData);
+      
 
-      candlesData.data[0].active = true;
-      setData(candlesData.data);
-      // setTimeout(() => {
-      //   for (let i = 0; i < candlesData.data.length; i++) {
-      //     if ((candlesData.data[i].active = true)) {
-      //       candlesData.data[i].active = false;
-      //       candlesData.data[i + 1].active = true;
-      //     }
-      //     i++;
-      //   }
-      // }, 1000);
+        
+      if(data[0]) {
+        data[0].active = true;
+      }
+
+      window.setInterval(()=>setCurrentCandle((prev)=>{        
+        return prev === data.length-1 ? 0 : ++prev
+      }), 3000)
+      setCandles(data)
     })();
   }, []);
-  console.log("candlesData2 data dtat", data);
-
-  setTimeout(() => {
-    for (let i = 0; i < data.length; i++) {
-      if ((data[i].active = true)) {
-        data[i].active = false;
-        data[i + 1].active = true;
-      }
-      i++;
+  
+  console.log(candles);
+  useEffect(() => {
+    if(!candles.length) return 
+    const prev = currentCandle === 0 ? candles.length-1: currentCandle-1
+    candles[prev].active = false
+    if(candles[currentCandle]) {
+      candles[currentCandle].active = true
+    } else {      
+      candles[0].active = true      
     }
-  }, 1000);
+  }, [currentCandle])
+
+  
 
   return (
     <div className="sectionThree-container">
@@ -51,7 +53,7 @@ const SectionThree = ({ userid }) => {
         We will never ever forget you!
       </h3>
 
-      {data.map((candle) => (
+      {candles.map((candle) => (
         <div
           className={`candle ${candle.active ? "active" : ""}`}
           id={`candle${candle.id}`}
