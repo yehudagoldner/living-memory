@@ -16,6 +16,71 @@
   width: 32px;
 }
 
+.form-inner {
+  /* display: flex-end;
+  justify-content: center;
+  align-items: center; */
+  position: absolute;
+  background: #121212;
+  opacity: 0.8;
+  right: 0px;
+  top: 42px;
+  margin-top:40px;
+}
+
+
+.form-group{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 40px;
+  font-size: 25px;
+  /* width: 400px; */
+}
+
+label{
+  margin-right: 20px;
+}
+
+.loginbtn {
+  font-size: 20px;
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+  position: relative;
+  left:450px;
+}
+
+/* .form-outer:hover  {
+  display:flex;
+} */
+
+.loginbutton{
+  margin: 50px;
+}
+
+.name{
+  /* height: 35px; */
+  font-size: 20px
+}
+.email{
+  /* height: 35px; */
+  font-size: 20px
+
+}
+.password{
+  /* height: 35px; */
+  font-size: 20px
+
+}
+
+.error{
+  position: relative;
+  top:10px;
+  color: red;
+  font-weight: bold;
+}
+
 .candle-image-drawer {
   height: 26px;
   width: 32px;

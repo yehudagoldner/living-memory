@@ -30,14 +30,49 @@ import EditSharpIcon from "@mui/icons-material/EditSharp";
 import ThumbUpSharpIcon from "@mui/icons-material/ThumbUpSharp";
 import { Link } from "react-router-dom";
 import { styled } from "@mui/material/styles";
+import LoginP from "./Login";
 
 import "./Navbar.css";
+import LoginForm from "./LoginForm";
 
 const drawerWidth = 240;
 
-function DrawerAppBar(props) {
+function DrawerAppBar( props ) {
   const { window } = props;
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [isShown, setIsShown] = useState(false);
+  const [user, setUser] = useState({ name: "", email: "" });
+  const [error, setError] = useState("");
+
+  const adminUser = {
+    email: "admin@admin.com",
+    password: "admin123",
+  };
+
+  const Login = (details) => {
+    console.log(details);
+    if (
+      details.email === adminUser.email &&
+      details.password === adminUser.password
+    ) {
+      console.log("Logged in");
+      setUser({ name: details.name, email: details.email });
+    } else {
+      console.log("Details do not match");
+      setError("Details do not match")
+    }
+  };
+
+  const LogOut = () => {
+    console.log("Logout");
+    setUser({ name: "", email: "" });
+  };
+
+
+  const loginHandleClick = (event) => {
+    setIsShown((current) => !current);
+  };
+
 
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
@@ -263,6 +298,27 @@ function DrawerAppBar(props) {
                     <ShareIcon sx={{ mr: 1 }} /> Share
                   </Button>
                 </Link>
+                {user.email !== "" ? (
+                  <Button
+                    className="loginbtn"
+                    sx={{ color: "white" }}
+                    onClick={LogOut}
+                  >
+                    Logout
+                  </Button>
+                ) : (
+                  <Button
+                    className="loginbtn"
+                    sx={{ color: "white" }}
+                    onClick={loginHandleClick}
+                  >
+                    Login
+                  </Button>
+                )}
+                <div> 
+                  
+                  {isShown && <LoginP />}
+                  </div>  
               </Box>
             </Toolbar>
           </AppBar>
