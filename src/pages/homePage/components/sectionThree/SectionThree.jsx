@@ -34,7 +34,6 @@ const SectionThree = ({ userid }) => {
     })();
   }, []);
 
-  console.log(candles);
   useEffect(() => {
     if (!candles.length) return;
     const prev = currentCandle === 0 ? candles.length - 1 : currentCandle - 1;
