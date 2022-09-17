@@ -29,6 +29,10 @@
   align-items: center;
   gap: 5px;
 }
+.img-right img {
+  width: 200px;
+  height: 200px;
+}
 
 @media only screen and (max-width: 1200px) {
   .rightBox-wrapper {
