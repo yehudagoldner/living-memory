@@ -35,7 +35,7 @@ model Creator {
   lastName  String?
   password  String?
   email     String?
-  user      Int?
+  facebook_id      String?
 
   @@index([firstName, lastName, email])
 }
