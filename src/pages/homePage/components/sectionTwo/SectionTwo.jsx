@@ -1,13 +1,13 @@
 import React from "react";
 import "./sectionTwo.css";
-import RightSide from "./components/RightSide";
-import LeftSide from "./components/LeftSide";
+import RandomPost from "./components/RandomPost"
+
 
 const SectionTwo = () => {
   return (
     <div className="sectionTwo-container">
-      <LeftSide />
-      <RightSide />
+      <RandomPost type="text" />
+      <RandomPost type="image"/>
     </div>
   );
 };
