@@ -31,6 +31,7 @@ const saveUser = async (user, cookie) => {
       lastName: cookie.lastName,
       password: md5(cookie.password),
       email: cookie.email,
+      user: user.facebook_id,
     },
   });
   user.creator = creator.id
