@@ -37,10 +37,7 @@ export default function Slider({ imagesArr, setImagesArr, length }) {
     <div className="container-slider">
       {/* <div className="slide active-anim"></div> */}
       <BtnSlider moveSlide={prevSlide} direction={"prev"} />
-      <div className="square"></div>
-      <div className="square"></div>
-      <div className="square"></div>
-      <div className="square"></div>
+     
       <BtnSlider moveSlide={nextSlide} direction={"next"} />
 
       {/* <div className="container-dots">

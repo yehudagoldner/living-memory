@@ -65,8 +65,11 @@
 }
 .image-box .profile-pics {
   position: absolute;
-  width: 250px;
+  height: 230px;
   right: -50%;
+  transform: translateX(50);
+   
+
   top: 0;
 }
 
@@ -129,6 +132,22 @@
   }
   .scroller-container {
     top: 120%;
+  }
+
+  .image-box {
+    top:19px;
+    margin:auto;
+  }
+
+  .container-slider {
+    width: 90vw;
+    left: 50%;
+    transform: translateX(-50%);
+    
+  }
+
+  .sectionOne-container:after {
+    background: url(../../assets/table.png) no-repeat bottom center;
   }
 }
 

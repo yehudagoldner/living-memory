@@ -17,7 +17,7 @@ const SectionOne = () => {
 
   useEffect(() => {
     if (data.profileImages) {
-      const currentImageArr = JSON.parse(data.profileImages[2].image);
+      const currentImageArr = JSON.parse(data.profileImages[0].image);
       // setImagesArr(currentImageArr);
       // console.log(currentImageArr);
       setPersonImage(currentImageArr[0].source);
@@ -42,23 +42,32 @@ const SectionOne = () => {
 
             <div className="continue">Continue reading &gt; </div>
           </div>
-          <div className="scroller-container">
-            {data.profileImages && (
-              <Slider
-                {...{ imagesArr, setImagesArr }}
-                length={data.profileImages.length}
-              />
-            )}
-          </div>
+          <div className="scroller-container"></div>
           <div className="image-box">
             <img className="flowers" src="frame.png" />
             <div className="profile-pics-wrapper">
               {/* <img className="profile-pics" src={personImage} alt="" /> */}
               <img
                 className="profile-pics"
+                alt="profile picture"
                 srcSet={imagesArr.map((img) => `${img.source} ${img.width}w`)}
+                onLoad={(image) => {
+                  console.log(image.target.clientWidth);
+                  if (image.target.clientWidth < 230) {
+                    const oldHeight = image.target.clientHeight
+                    const newHeight = oldHeight * 1.5
+                    console.log(oldHeight, newHeight);
+                    image.target.style.height = newHeight+"px";
+                  }
+                }}
               />
             </div>
+            {data.profileImages && (
+              <Slider
+                {...{ imagesArr, setImagesArr }}
+                length={data.profileImages.length}
+              />
+            )}
           </div>
         </div>
       </div>
