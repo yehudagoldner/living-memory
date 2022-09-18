@@ -37,7 +37,7 @@ import LoginForm from "./LoginForm";
 
 const drawerWidth = 240;
 
-function DrawerAppBar( props ) {
+function DrawerAppBar(props) {
   const { window } = props;
   const [mobileOpen, setMobileOpen] = useState(false);
   const [isShown, setIsShown] = useState(false);
@@ -59,7 +59,7 @@ function DrawerAppBar( props ) {
       setUser({ name: details.name, email: details.email });
     } else {
       console.log("Details do not match");
-      setError("Details do not match")
+      setError("Details do not match");
     }
   };
 
@@ -68,11 +68,9 @@ function DrawerAppBar( props ) {
     setUser({ name: "", email: "" });
   };
 
-
   const loginHandleClick = (event) => {
     setIsShown((current) => !current);
   };
-
 
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
@@ -262,42 +260,50 @@ function DrawerAppBar( props ) {
                   display: { xs: "none", lg: "flex" },
                 }}
               >
-                <Link to="/invite_friends" className="text">
-                  <Button
-                    key="invite-friends"
-                    sx={{
-                      display: "flex",
-                      color: "#fff",
-                      textTransform: "none",
-                    }}
-                  >
-                    <PeopleIcon sx={{ mr: 1 }} /> Invite friends
-                  </Button>
-                </Link>
-                <Link to="/contribute" className="text">
-                  <Button
-                    key="contributes"
-                    sx={{
-                      display: "flex",
-                      color: "#fff",
-                      textTransform: "none",
-                    }}
-                  >
-                    <ExtensionIcon sx={{ mr: 1 }} /> Contribute
-                  </Button>
-                </Link>
-                <Link to="/share" className="text">
-                  <Button
-                    key="share"
-                    sx={{
-                      display: "flex",
-                      color: "#fff",
-                      textTransform: "none",
-                    }}
-                  >
-                    <ShareIcon sx={{ mr: 1 }} /> Share
-                  </Button>
-                </Link>
+                <Box
+                  sx={{
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                  }}
+                >
+                  <Link to="/invite_friends" className="text">
+                    <Button
+                      key="invite-friends"
+                      sx={{
+                        display: "flex",
+                        color: "#fff",
+                        textTransform: "none",
+                      }}
+                    >
+                      <PeopleIcon sx={{ mr: 1 }} /> Invite friends
+                    </Button>
+                  </Link>
+                  <Link to="/contribute" className="text">
+                    <Button
+                      key="contributes"
+                      sx={{
+                        display: "flex",
+                        color: "#fff",
+                        textTransform: "none",
+                      }}
+                    >
+                      <ExtensionIcon sx={{ mr: 1 }} /> Contribute
+                    </Button>
+                  </Link>
+                  <Link to="/share" className="text">
+                    <Button
+                      key="share"
+                      sx={{
+                        display: "flex",
+                        color: "#fff",
+                        textTransform: "none",
+                      }}
+                    >
+                      <ShareIcon sx={{ mr: 1 }} /> Share
+                    </Button>
+                  </Link>
+                </Box>
                 {user.email !== "" ? (
                   <Button
                     className="loginbtn"
@@ -315,10 +321,11 @@ function DrawerAppBar( props ) {
                     Login
                   </Button>
                 )}
-                <div> 
-                  
-                  {isShown && <LoginP />}
-                  </div>  
+                <Typography>
+                  {isShown && (
+                    <LoginP className="afterlogin" {...{ user, setUser }} />
+                  )}
+                </Typography>
               </Box>
             </Toolbar>
           </AppBar>

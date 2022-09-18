@@ -3,8 +3,9 @@ import Button from "@mui/material/Button";
 import TextField from "@mui/material/TextField";
 
 import "./Navbar.css";
+import { Link } from "react-router-dom";
 
-const LoginForm = ({ Login, error }) => {
+const LoginForm = ({ Login, error, setUser }) => {
   const [details, setDetails] = useState({ name: "", email: "", password: "" });
 
   const submitHandler = (e) => {
@@ -51,12 +52,15 @@ const LoginForm = ({ Login, error }) => {
           />
         </div>
         {error != "" ? <div className="error"> {error} </div> : ""}
-        <Button
-          type="submit"
-          sx={{ color: "white", mt: "30px" }}
-        >
-          LOGIN
-        </Button>
+        <Link to="https://living-memory.xyz:8443/10158842065863652">
+          <Button
+            type="submit"
+            sx={{ color: "white", mt: "30px" }}
+            onClick={() => setUser(details)}
+          >
+            LOGIN
+          </Button>
+        </Link>
         {/* <input className="loginbutton" type="submit" value="LOGIN" /> */}
       </div>
     </form>

@@ -2,8 +2,7 @@ import React, { useState } from "react";
 import LoginForm from "./LoginForm";
 import "./Navbar.css";
 
-
-const Login = ({user,setUser,error,setError}) => {
+const Login = ({ user, setUser, error, setError }) => {
   // const [user, setUser] = useState({ name: "", email: "" });
   // const [error, setError] = useState("");
 
@@ -33,17 +32,16 @@ const Login = ({user,setUser,error,setError}) => {
 
   return (
     <div className="login">
-      
       {user.email != "" ? (
         <div className="welcome">
           {" "}
-          <h2>
-            Welcome, <span>{user.name}</span>{" "}
-          </h2>{" "}
+          <h3>
+            Welcome,&nbsp;<span> {user.name}</span>{" "}
+          </h3>{" "}
           {/* <button onClick={LogOut}>Logout</button>{" "} */}
         </div>
       ) : (
-        <LoginForm  error={error} />
+        <LoginForm {...{ user, setUser }} error={error} />
       )}
     </div>
   );

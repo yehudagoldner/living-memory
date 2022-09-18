@@ -31,7 +31,7 @@ const MemorialInfo = ({
         <TextField
           className="memorial-info-grid-1"
           id="outlined-basic"
-          label="Facebook User Name"
+          label="Decent First Name"
           variant="outlined"
           value={formData.facebookUserName}
           onChange={(e) =>
@@ -53,7 +53,7 @@ const MemorialInfo = ({
         <TextField
           className="memorial-info-grid-2"
           id="outlined-basic"
-          label="Facebook Email"
+          label="Decent Last Name"
           variant="outlined"
           value={formData.facebookEmail}
           onChange={(e) =>
