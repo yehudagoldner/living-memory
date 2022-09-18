@@ -1,7 +1,9 @@
 * {
   box-sizing: border-box;  
 }
-
+.MuiInputBase-input::placeholder{
+  text-transform: capitalize !important;  
+}
 .form {
   width: 1000px;
   margin: auto;
@@ -224,6 +226,9 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
+}
+.field {
+  margin:0.3em;
 }
 
 .summary-container {

@@ -19,9 +19,11 @@ const Form = () => {
   const [formData, setFormData] = useState({
     facebookUserName: "",
     facebookEmail: "",
-    firstName: "",
-    lastName: "",
+    first_name: "",
+    last_name: "",
     email: "",
+    password: "",
+    passwordVerification: "",
     about: "",
     birthDate: "",
     passingDate: "",

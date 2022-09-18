@@ -88,6 +88,54 @@ const PersonalInfo = ({
             ) : (
               ""
             )}
+
+            <TextField
+              sx={{ mt: "16px" }}
+              id="outlined-basic"
+              label="Password"
+              type="password"
+              variant="outlined"
+              value={formData.password}
+              onChange={(e) =>
+                setFormData({ ...formData, password: e.target.value })
+              }
+            />
+            {!formData.password && checkLevelOneForm ? (
+              <Typography
+                className="personal-info-firstname-validation"
+                sx={{ color: "red" }}
+              >
+                This is a required field
+              </Typography>
+            ) : (
+              ""
+            )}
+            <TextField
+              sx={{ mt: "16px" }}
+              id="outlined-basic"
+              label="Password Verification"
+              type="password"
+              variant="outlined"
+              value={formData.passwordVerification}
+              onChange={(e) =>
+                setFormData({
+                  ...formData,
+                  passwordVerification: e.target.value,
+                })
+              }
+            />
+            {!formData.passwordVerification &&
+            formData.passwordVerification !== formData.password &&
+            checkLevelOneForm ? (
+              <Typography
+                className="personal-info-firstname-validation"
+                sx={{ color: "red" }}
+              >
+                Password verification and password must be identical
+              </Typography>
+            ) : (
+              ""
+            )}
           </div>
         </Box>
         <NextButton
