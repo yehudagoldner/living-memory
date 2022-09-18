@@ -17,7 +17,7 @@ app.use('/posts', postsRoutes)
 
 app.route("/api/pagesLiked").get(async (req, res)=> res.json(await prisma.pagesLiked.findMany({})))
 app.route("/api/profileImages").get(async (req, res)=> res.json(await prisma.profileImages.findMany({})))
-app.route("/api/creator").get(async (req, res)=> res.json(await prisma.creator.findFirst({where:{email:req.params.email, password:req.params.password}})))
+app.route("/api/creator").get(async (req, res)=> res.json(await prisma.creator.findFirst({where:{email:req.query.email, password:req.query.password}})))
 app.get("/api/:userId/all", async (req, res) => {  
   const user = await prisma.user.findFirst({ where: { facebook_id: req.params.userId } })
   res.json( {
