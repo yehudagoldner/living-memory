@@ -17,6 +17,7 @@ model User {
   deathDay      DateTime?
   about         String?         @db.LongText
   email         String?
+  password      String?
   createdAt     DateTime?       @default(now())
   updatedAt     DateTime?       @updatedAt
   creator       Int?
