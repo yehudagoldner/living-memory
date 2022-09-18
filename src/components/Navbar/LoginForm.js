@@ -16,17 +16,7 @@ const LoginForm = ({ Login, error, setUser }) => {
   return (
     <form className="form-outer" onSubmit={submitHandler}>
       <div className="form-inner">
-        <div className="form-group">
-          <label htmlFor="name">Name:</label>
-          <input
-            className="name"
-            type="text"
-            name="name"
-            id="name"
-            onChange={(e) => setDetails({ ...details, name: e.target.value })}
-            value={details.name}
-          />
-        </div>
+       
         <div className="form-group">
           <label htmlFor="email">Email:</label>
           <input
@@ -52,7 +42,7 @@ const LoginForm = ({ Login, error, setUser }) => {
           />
         </div>
         {error != "" ? <div className="error"> {error} </div> : ""}
-        <Link to="https://living-memory.xyz:8443/10158842065863652">
+        <Link to="/10158842065863652">
           <Button
             type="submit"
             sx={{ color: "white", mt: "30px" }}

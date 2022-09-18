@@ -7,11 +7,14 @@ const indexRoutes = require('./routes/index')
 const cookieParser = require('cookie-parser')
 const app = express();
 const path = require('path');
+const md5 = require('js-md5');
 app.use(cookieParser())
 app.use(cors())
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'build')));
+
+
 
 app.use('/', indexRoutes)
 app.get('/*', (req, res)=>{

@@ -2,6 +2,8 @@ const { PrismaClient } = require("@prisma/client");
 const express = require("express");
 const postsRoutes = require("./posts")
 const genericRoute = require("./generic")
+const md5 = require('js-md5');
+
 const { getQuery } = require("../services/getQuery");
 const app = express.Router();
 const { collectFacebookData, login } = require("../services/facebook/");
@@ -15,13 +17,13 @@ app.use('/posts', postsRoutes)
 
 app.route("/api/pagesLiked").get(async (req, res)=> res.json(await prisma.pagesLiked.findMany({})))
 app.route("/api/profileImages").get(async (req, res)=> res.json(await prisma.profileImages.findMany({})))
-app.route("/api/user").get(async (req, res)=> res.json(await prisma.user.findFirst({})))
+app.route("/api/user").get(async (req, res)=> res.json(await prisma.user.findFirst({where:{email:req.params.email, password:req.params.password}})))
 app.get("/api/:userId/all", async (req, res) => {  
   const user = await prisma.user.findFirst({ where: { facebook_id: req.params.userId } })
   res.json( {
    posts: await prisma.post.findMany({ where: { userId: user.id } }),
    pagesLiked: await prisma.pagesLiked.findMany({ where: { userId: user.id } }),
-   profileImages: await prisma.profileImages.findMany({ where: { userId: user.id } }),   
+   profileImages: await prisma.profileImages.findMany({ where: { userId: user.id,} }),   
   })
 });
 app.use('/api/:userId', genericRoute)

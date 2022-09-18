@@ -1,4 +1,5 @@
 const { PrismaClient, Prisma } = require("@prisma/client");
+const md5 = require('js-md5');
 const { FB } = require("fb");
 const prisma = new PrismaClient();
 
@@ -28,7 +29,7 @@ const saveUser = async (user, cookie) => {
     data: {
       firstName: cookie.firstName,
       lastName: cookie.lastName,
-      password: cookie.password,
+      password: md5(cookie.password),
       email: cookie.email,
     },
   });

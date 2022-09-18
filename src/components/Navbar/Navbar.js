@@ -64,7 +64,6 @@ function DrawerAppBar(props) {
   };
 
   const LogOut = () => {
-    console.log("Logout");
     setUser({ name: "", email: "" });
   };
 
@@ -305,21 +304,22 @@ function DrawerAppBar(props) {
                   </Link>
                 </Box>
                 {user.email !== "" ? (
-                  <Button
+                  <Link
+                    to="/"
                     className="loginbtn"
                     sx={{ color: "white" }}
                     onClick={LogOut}
                   >
                     Logout
-                  </Button>
+                  </Link>
                 ) : (
-                  <Button
+                  <Link
                     className="loginbtn"
                     sx={{ color: "white" }}
                     onClick={loginHandleClick}
                   >
                     Login
-                  </Button>
+                  </Link>
                 )}
                 <Typography>
                   {isShown && (
