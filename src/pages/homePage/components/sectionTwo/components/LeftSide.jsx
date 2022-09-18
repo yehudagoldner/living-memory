@@ -2,6 +2,7 @@ import React, { useEffect, useState, useContext } from "react";
 
 import "./left.css";
 import { facebookContentContext } from "../../../../../context/context.provider";
+import ReadMoreReact from 'read-more-react';
 
 const LeftSide = () => {
   const [data, setData] = useContext(facebookContentContext);
