@@ -59,7 +59,7 @@ const Header = ({ userid }) => {
     setDisplay(path !== "/wizard" ? true : false);
   }, [path]);
 
-  return (
+  return    (
     <>
       {display && (
         <div>
@@ -86,6 +86,7 @@ const Header = ({ userid }) => {
                       variant="h6"
                       noWrap
                       component="div"
+                      className="header-title"
                       sx={{
                         flexGrow: 1,
                         alignSelf: "flex-end",

@@ -4,10 +4,25 @@
   display: flex;
   justify-content: center;
   gap: 4em;
+  
+  
 }
 
+.sectionFour-container .inner{
+  width:1200px;
+  max-width: 90%;
+  margin:auto;
+  display: flex;
+}
+
+.sectionFour-container .leftBox, .sectionFour-container .rightBox-wrapper4{
+  flex:1
+}
+
+.video-title {text-align:center}
+
 @media only screen and (max-width: 800px) {
-  .sectionFour-container {
+  .sectionFour-container .inner{
     display: flex;
     flex-direction: column;
 

@@ -22,13 +22,13 @@ const RandomPost = ({ type, header }) => {
     }
   }, [data]);
 
-  return !post ? (
+  return !post || !post.text ? (
     ""
   ) : (
     <div className={`random-post-wrapper type-${type}`}>
       <div className="random-post-title">
         <div className="random-post-icon"></div>
-        <h3>{type === "image" ? "Some pictures uploaded" : "Text written"}</h3>
+        <h3>{type === "image" ? `Some pictures ${data.user.name} uploaded` : `Text ${data.user.name} written`}</h3>
       </div>
       <div className="random-post-text">
         {type === "image" ? <img src={post.image} alt="" /> : ""}

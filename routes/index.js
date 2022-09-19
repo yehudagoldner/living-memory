@@ -41,6 +41,7 @@ app.get("/api/:userId/all", async (req, res) => {
     profileImages: await prisma.profileImages.findMany({
       where: { userId: user.id },
     }),
+    user
   });
 });
 app.use("/api/:userId", genericRoute);

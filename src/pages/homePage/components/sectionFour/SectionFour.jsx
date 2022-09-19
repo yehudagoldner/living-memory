@@ -6,8 +6,11 @@ import LeftBox from "./components/LeftBox";
 const SectionFour = () => {
   return (
     <div className="sectionFour-container">
+      <div className="inner">
+
       <LeftBox />
       <RightBox />
+      </div>
     </div>
   );
 };
