@@ -20,7 +20,7 @@ const LeftSide = () => {
     }
   }, [data]);
 
-  return (
+  return !post && (
     <div className="leftBox-wrapper">
       <div className="leftBox-title">
         <div className="img-left"></div>
@@ -28,7 +28,13 @@ const LeftSide = () => {
       </div>
       <div className="text-left">
         <p>
-          {post}
+        <ReadMoreReact
+            text={post}
+            min={0}
+            ideal={200}
+            max={250}
+            readMoreText=""
+          />
           <span className="continue">Continue reading {">"} </span>
         </p>
       </div>

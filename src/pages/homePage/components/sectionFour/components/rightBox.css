@@ -43,6 +43,10 @@ h3 {
   border: 1px solid black;
 }
 
+.item-liked img {
+  width:100%
+}
+
 .item1 {
   background-image: url(../../../assets/likeIcon.png);
   width: 2.5em;

@@ -1,22 +1,43 @@
-import React from "react";
+import React, { useEffect, useLayoutEffect } from "react";
 import "./leftBox.css";
 import AddView from "../../reusable/AddView";
+import ReadMoreReact from "read-more-react";
+import { facebookContentContext } from "../../../../../context/context.provider";
+
+function getVideo(videos){
+  const randIndex = Math.floor(Math.random() * videos.length)-1
+  const video = videos[randIndex]
+return video && video.video ? video : getVideo(videos)
+
+}
 
 const LeftBox = () => {
-  return (
+  const [data, setData] = React.useContext(facebookContentContext);
+  const [post, setPost] = React.useState({text:''})
+
+  useLayoutEffect(()=>{
+    if(!data.posts) return 
+    const videos = data.posts.filter(post=>post.type==="video")
+    const post = getVideo(videos)
+    console.log(post);
+    setPost(post)    
+    
+  }, [data])
+  return post && (
     <div className="leftBox">
+      
       <div className="title4-left">
         <div className="item1-left"></div>
+          <h3 className="video-title">A video  {`${data.user.name}`} has uploaded</h3>
         <div className="item2">
-          <h3>
-            {" "}
-            Five Leaves Left, the<br></br> first of three albums
-          </h3>
+         
+            
+         
         </div>
       </div>
 
       <div className="main-item">
-        <video controls="controls" src=""></video>
+        <video controls="controls" src={post.video}></video>
       </div>
 
       <AddView textInMemorial={"Videos"} textInBtn={"Add a video"} />
