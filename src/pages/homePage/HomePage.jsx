@@ -12,7 +12,7 @@ const HomePage = (props) => {
 
   return (
     <div className="homePage-container">
-      {data && (
+      {data.posts && (
         <>
           <SectionOne />
           <SectionTwo />
