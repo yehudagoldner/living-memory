@@ -1,13 +1,26 @@
 import React, { useState } from "react";
 import Button from "@mui/material/Button";
 import TextField from "@mui/material/TextField";
-
+import axios from "axios";
+import config from "../../config";
 import "./Navbar.css";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 
-const LoginForm = ({ Login, error, setUser }) => {
+
+const checkUser = async (user, setError, history, setUser)=>{
+  setUser(user)
+  const { data } = await axios.get(`${config.API_ENDPOINT}/api/creator?email=${user.email}&password=${user.password}`)
+ if(data) {
+  history.push(`/${data.facebook_id}`)
+   return;
+ } 
+ setError("Invalid email or password")
+}
+
+const LoginForm = ({ Login, setUser }) => {
+  const history = useHistory()
   const [details, setDetails] = useState({ name: "", email: "", password: "" });
-
+  const [error, setError] = useState("")
   const submitHandler = (e) => {
     e.preventDefault();
     Login(details);
@@ -42,16 +55,16 @@ const LoginForm = ({ Login, error, setUser }) => {
           />
         </div>
         {error != "" ? <div className="error"> {error} </div> : ""}
-        <Link to="/10158842065863652">
+        
           <Button
             type="submit"
             sx={{ color: "white", mt: "30px" }}
-            onClick={() => setUser(details)}
+            onClick={() => checkUser(details, setError, history, setUser)}
           >
             LOGIN
           </Button>
-        </Link>
-        {/* <input className="loginbutton" type="submit" value="LOGIN" /> */}
+        
+        {/* <input className="loginbutton" type="submit" value="LOGIN" /> */}        
       </div>
     </form>
   );
