@@ -8,10 +8,7 @@ const RightBox = () => {
       <div className="title4">
         <div className="item1"></div>
         <div className="item2">
-          <h3>
-            {" "}
-            Nick liked The Beatles, Little<br></br> Prince and more
-          </h3>
+          <h3> Main likes</h3>
         </div>
       </div>
       <div className="rightBox">
