@@ -26,7 +26,9 @@ const LeftBox = () => {
       <div className="leftBox">
         <div className="title4-left">
           <div className="item1-left"></div>
-          <h3 className="video-title">A video {data.user.name} has uploaded</h3>
+          <h3 className="video-title">
+            A video had been uploaded by {data.user.name}{" "}
+          </h3>
           <div className="item2"></div>
         </div>
 

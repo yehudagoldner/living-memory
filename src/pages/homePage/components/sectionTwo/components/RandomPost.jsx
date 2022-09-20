@@ -15,20 +15,23 @@ const RandomPost = ({ type, header }) => {
   useEffect(() => {
     if (data.posts) {
       const randIndex = Math.floor(
-        Math.random() * (data.posts.filter((post) => post[type]).length -1)
+        Math.random() * (data.posts.filter((post) => post[type]).length - 1)
       );
-      let random = data.posts.filter((post) => post[type])[randIndex];      
+      let random = data.posts.filter((post) => post[type])[randIndex];
       if (random.image) setPost(random);
     }
   }, [data]);
-
   return !post || !post.text ? (
     ""
   ) : (
     <div className={`random-post-wrapper type-${type}`}>
       <div className="random-post-title">
         <div className="random-post-icon"></div>
-        <h3>{type === "image" ? `Some pictures ${data.user.name} uploaded` : `Text ${data.user.name} written`}</h3>
+        <h3>
+          {type === "image"
+            ? `Some pictures had been uploaded by ${data.user.name}`
+            : `Text had been written by ${data.user.name}`}
+        </h3>
       </div>
       <div className="random-post-text">
         {type === "image" ? <img src={post.image} alt="" /> : ""}
