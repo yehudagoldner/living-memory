@@ -99,6 +99,7 @@ const savePageLiked = async ({ user, pageLikes }) => {
     const record = {
       facebook_id: like.id,
       userId: user.id,
+      name: like.name,
       image: JSON.stringify(like.picture.data),
       time_liked: new Date(like.created_time),
     };
