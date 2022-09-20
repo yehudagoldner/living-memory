@@ -11,11 +11,13 @@ import Candles from "./pages/candles/Candles";
 
 import { Switch, Route } from "react-router-dom";
 import { FacebookProvider } from "./context/context.provider.jsx";
+import Navbar from "../src/components/Navbar/Navbar";
 
 export default function UserRoutes(props) {
   const userid = props.match.params.userid;  
   return (
     <FacebookProvider userid={userid}>
+      <Navbar logedIn />
       {<Header {...{userid}} />} 
       
       {/* <Route exact path="/bookview" component={Book} /> */}

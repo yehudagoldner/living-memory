@@ -1,7 +1,7 @@
 // import UploadFile from "./pages/upload file/uploadFile.jsx";
 import "./App.css";
 import React from "react";
-import Navbar from "../src/components/Navbar/Navbar";
+
 import Wizard from "../src/components/Wizard/Wizard";
 import TermsOfUse from "./components/TermsOfUse/TermsOfUse";
 import Candles from "./pages/candles/Candles";
@@ -18,7 +18,7 @@ import UserRoutes from "./UserRoutes.js";
 function App() {
   return (
     <div className="App">
-      <Navbar />
+      
       {/* <FriendList /> */}
       {/* <Contribute /> */}
       {/* <UploadFile /> */}

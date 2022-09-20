@@ -32,7 +32,7 @@ const collectFacebookData = async (req, res) => {
   }
 
   res.send(`
-  <h3 style="width:100%;text-align:center;margin-top:100px"> Loading... </h3>
+  <h1 style="width:100%;text-align:center;margin-top:100px"> Loading... </h1>
   <script>  
     const tokenUrl = '/save_facebook_data?'+window.location.hash.replace('#', '')       
     location = tokenUrl    
@@ -45,7 +45,7 @@ const login = async (req, res) => {
   
   // res.json(req.cookies)
   res.send(`
-  <h3 style="width:100%;text-align:center;margin-top:100px"> Loading... </h3>
+  <h1 style="width:100%;text-align:center;margin-top:100px"> Loading... </h1>
   <script>
     const facebookLoginUrl = 'https://www.facebook.com/v14.0/dialog/oauth?response_type=token&client_id=5151418748228268&client_secret=c80685ac9f29d88fec5673d7a276be98&redirect_uri=${process.env.FACEBOOK_RETURN_URL}/save_facebook_data'  
     location = facebookLoginUrl

@@ -1,5 +1,5 @@
 import * as React from "react";
-import { useState } from "react";
+import { useState, useContext } from "react";
 import PropTypes from "prop-types";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
@@ -31,7 +31,7 @@ import ThumbUpSharpIcon from "@mui/icons-material/ThumbUpSharp";
 import { Link } from "react-router-dom";
 import { styled } from "@mui/material/styles";
 import LoginP from "./Login";
-
+import { facebookContentContext } from "../../context/context.provider"
 import "./Navbar.css";
 import LoginForm from "./LoginForm";
 
@@ -43,7 +43,8 @@ function DrawerAppBar(props) {
   const [isShown, setIsShown] = useState(false);
   const [user, setUser] = useState({ name: "", email: "" });
   const [error, setError] = useState("");
-
+  
+  
   const adminUser = {
     email: "admin@admin.com",
     password: "admin123",
@@ -301,7 +302,7 @@ function DrawerAppBar(props) {
                     </Button>
                   </Link>
                 </Box>
-                {user.email !== "" ? (
+                {props.logedIn || user.email !== "" ? (
                   <Link
                     to="/"
                     className="loginbtn"

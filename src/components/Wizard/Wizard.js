@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import PersonalInfo from "./PersonalInfo";
 import MemorialInfo from "./MemorialInfo";
 import Finish from "./Finish";
-
+import Navbar from "../Navbar/Navbar";
 import Button from "@mui/material/Button";
 
 import "./Wizard.css";
@@ -10,6 +10,7 @@ import { Typography } from "@mui/material";
 import NextButton from "./PrevNextButtons";
 
 const Form = () => {
+
   const [page, setPage] = useState(0);
 
   const [checkLevelOneForm, setCheckLevelOneForm] = useState(false);
@@ -30,32 +31,7 @@ const Form = () => {
     about: "",
   });
 
-  //   const FormTitles = ["Personal info", "Memorial info", "finish"];
 
-  // const required = {
-  //   value: true,
-  //   message: "This field is required",
-  // };
-
-  // const nextClick = () => {
-  //   switch (page) {
-  //     case 0:
-  //       !formData.firstName || !formData.lastName || !formData.email
-  //         ? setCheckLevelOneForm(true)
-  //         : setPage((currPage) => currPage + 1);
-  //     case 1:
-  //       !formData.facebookUserName ||
-  //       !formData.facebookEmail ||
-  //       !formData.birthDate ||
-  //       !formData.passingDate ||
-  //       !formData.about
-  //         ? setCheckLevelOneForm(true)
-  //         : setPage((currPage) => currPage + 1);
-  //     case 2:
-  //       window.location = "/get_facebook_data";
-  //       console.log(formData);
-  //   }
-  // };
 
   const PageDisplay = (checkLevelOneForm, checkLevelTwoForm) => {
     switch (page) {
@@ -96,6 +72,8 @@ const Form = () => {
   };
 
   return (
+    <>
+    <Navbar />
     <section className="form">
       <h1 className="wizard-title">
       Create a memorial site for your loved one in one click
@@ -153,6 +131,7 @@ const Form = () => {
         </div>
       </div>
     </section>
+    </>
   );
 };
 export default Form;
