@@ -102,9 +102,14 @@ label{
   width: 32px;
 }
 
+@media screen and (max-width: 360px) {
+  .logo-text{
+    font-size:17px !important;
+  }
+}
 @media screen and (max-width: 758px) {
   .living-memory-img {
-    margin-left: 100px;
+    margin-left: 0;
   }
 }
 

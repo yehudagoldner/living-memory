@@ -231,6 +231,7 @@ function DrawerAppBar(props) {
                 <Typography
                   variant="h6"
                   component="div"
+                  className="logo-text"
                   sx={{
                     flexGrow: 1,
                     mb: "-7px",

@@ -19,7 +19,7 @@ const RightBox = () => {
             const image = JSON.parse(page.image);
             return (
               <div className="item-liked">
-                <img src={image.url} alt="" />
+                <img src={image.url} title={page.name} alt={page.name} />
               </div>
             );
           })}

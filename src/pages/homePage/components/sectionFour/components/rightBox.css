@@ -39,8 +39,9 @@ h3 {
   text-align: left;
 }
 
-.item-liked {
-  border: 1px solid black;
+.item-liked img {
+  border: 2px solid #555;
+  border-radius: 3px;
 
 }
 

@@ -1,6 +1,6 @@
-import * as React from "react";
+import React, { useEffect, useState, useContext } from "react";
 import { useLocation } from "react-router-dom";
-import { useState, useEffect } from "react";
+import Moment from "react-moment";
 import PropTypes from "prop-types";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
@@ -31,6 +31,7 @@ import EditSharpIcon from "@mui/icons-material/EditSharp";
 import ThumbUpSharpIcon from "@mui/icons-material/ThumbUpSharp";
 import { Link } from "react-router-dom";
 import { styled } from "@mui/material/styles";
+import { facebookContentContext } from "../../context/context.provider";
 import "./Header.css";
 
 const darkThemeSec = createTheme({
@@ -51,25 +52,19 @@ const StyledToolbar = styled(Toolbar)(({ theme }) => ({
   },
 }));
 
-const Header = ({ userid }) => {
-  const location = useLocation();
-  const path = location.pathname;
-  const [display, setDisplay] = useState(path !== "/wizard" ? true : false);
-  useEffect(() => {
-    setDisplay(path !== "/wizard" ? true : false);
-  }, [path]);
+const Header = ({ userid }) => {  
+  const [data, setData] = useContext(facebookContentContext);
 
-  return    (
-    <>
-      {display && (
-        <div>
+  return  data.user &&(
+      <div className="header-wrapper">
           <ThemeProvider theme={darkThemeSec}>
-            <Box sx={{ mt: "-34px", flexGrow: 1 }}>
+            <Box  sx={{ mt: "-34px", flexGrow: 1 }}>
               <AppBar position="static">
                 <StyledToolbar>
-                  <Box sx={{ ml: "80px" }}>
+                  <Box className="header-text-wrapper" sx={{ ml: "80px" }}>
                     <Typography
                       variant="h4"
+                      className="header-user-title"
                       fontWeight="bold"
                       noWrap
                       component="div"
@@ -80,13 +75,13 @@ const Header = ({ userid }) => {
                         mb: "10px",
                       }}
                     >
-                      Nicholas Drake 1948-1974
+                     <strong>{data.user.name}</strong> <Moment format="YYYY">{data.user.birthDay}</Moment> - <Moment format="YYYY">{data.user.deathDay}</Moment>
                     </Typography>
                     <Typography
                       variant="h6"
-                      noWrap
+                      
                       component="div"
-                      className="header-title"
+                      className="header-details"
                       sx={{
                         flexGrow: 1,
                         alignSelf: "flex-end",
@@ -94,7 +89,7 @@ const Header = ({ userid }) => {
                         fontSize: "17px",
                       }}
                     >
-                      Gone yet not forgotten, although we are apart, your <br />
+                      Gone yet not forgotten, although we are apart, your 
                       memory lives within us, forever in our hearts.
                     </Typography>
                   </Box>
@@ -254,10 +249,7 @@ const Header = ({ userid }) => {
               </AppBar>
             </Box>
           </ThemeProvider>
-        </div>
-      )}
-    </>
-  );
+        </div>)
 };
 
 export default Header;
