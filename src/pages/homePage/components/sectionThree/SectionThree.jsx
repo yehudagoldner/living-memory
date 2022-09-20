@@ -7,6 +7,7 @@ import View from "../reusable/View";
 import axios from "axios";
 import config from "../../../../config";
 import Moment from "react-moment";
+import { Link } from "react-router-dom";
 
 const SectionThree = ({ userid }) => {
   const [candles, setCandles] = useState([]);
@@ -71,7 +72,7 @@ const SectionThree = ({ userid }) => {
       <div className="bottom-sectionThree">
         <Memorial memorial={"Candles"} />
         <View />
-        <Button value={"Add a candle"} />
+        <Link to={`/${userid}/candles`}><Button value={"Add a candle"} /></Link>
       </div>
     </div>
   );

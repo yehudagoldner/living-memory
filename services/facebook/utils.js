@@ -89,7 +89,7 @@ const handlePosts = async (user) => {
 
 const getPageLiked = async () => {
   const pageLikes = await facebookApiReq(
-    "me/likes?fields=about,picture.height(200),created_time"
+    "me/likes?fields=about,name,picture.height(200),created_time"
   );
   return pageLikes;
 };

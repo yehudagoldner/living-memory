@@ -6,6 +6,10 @@
   overflow: hidden;
 }
 
+.main-item video {
+  width:90%
+}
+
 .title4-left {
   display: flex;
   flex-direction: row;

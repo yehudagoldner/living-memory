@@ -26,8 +26,8 @@
 }
 .rightBox {
   display: grid;
-  grid-template-columns: 80px 80px 80px 80px;
-  grid-template-rows: 80px 80px;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(2, 1fr);
   gap: 5px;
 }
 
@@ -41,6 +41,7 @@ h3 {
 
 .item-liked {
   border: 1px solid black;
+
 }
 
 .item-liked img {
@@ -51,6 +52,12 @@ h3 {
   background-image: url(../../../assets/likeIcon.png);
   width: 2.5em;
   height: 2.5em;
+}
+
+
+
+.rightBox-bottom4 {
+  padding-top: 0.7em;
 }
 
 /* .rightBox-bottom4 {

@@ -7,6 +7,15 @@ import AddView from "../../reusable/AddView";
 import { facebookContentContext } from "../../../../../context/context.provider";
 import ReadMoreReact from "read-more-react";
 
+function getTextPost(data, type){
+  const randIndex = Math.floor(
+    Math.random() * (data.posts.filter((post) => post[type]).length - 1)
+  );
+  let random = data.posts.filter((post) => post[type])[randIndex];
+  if(type==='text') console.log(random[type]);
+  return random[type] ? random: getTextPost(data, type)
+}
+
 const RandomPost = ({ type, header }) => {
   const [data, setData] = useContext(facebookContentContext);
 
@@ -14,11 +23,8 @@ const RandomPost = ({ type, header }) => {
 
   useEffect(() => {
     if (data.posts) {
-      const randIndex = Math.floor(
-        Math.random() * (data.posts.filter((post) => post[type]).length - 1)
-      );
-      let random = data.posts.filter((post) => post[type])[randIndex];
-      if (random.image) setPost(random);
+      const random = getTextPost(data, type)
+      if (random[type]) setPost(random);
     }
   }, [data]);
   return !post || !post.text ? (
