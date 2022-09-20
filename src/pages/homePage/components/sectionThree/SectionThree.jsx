@@ -46,7 +46,7 @@ const SectionThree = ({ userid }) => {
     }
   }, [currentCandle]);
 
-  return (
+  return candles.length && (
     <div className="sectionThree-container ">
       {candles.map((candle) => (
         <div
@@ -70,7 +70,7 @@ const SectionThree = ({ userid }) => {
 
       <div className="icon-container">{/* <IoIosArrowForward /> */}</div>
       <div className="bottom-sectionThree">
-        <Memorial memorial={"Candles"} />
+        <Memorial candlesAmount={candles.length} memorial={"Candles"} />
         <View />
         <Link to={`/${userid}/candles`}><Button value={"Add a candle"} /></Link>
       </div>

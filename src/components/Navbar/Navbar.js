@@ -129,10 +129,7 @@ function DrawerAppBar(props) {
       </List>
 
       <Divider sx={{ mt: "15px" }} />
-      <ListItemText>
-        Nicholas Drake <br /> 1948-1974
-      </ListItemText>
-
+      
       <Divider />
 
       <List>
@@ -334,6 +331,7 @@ function DrawerAppBar(props) {
             <Drawer
               container={container}
               variant="temporary"
+              className="mobile-left-bar"
               open={mobileOpen}
               onClose={handleDrawerToggle}
               ModalProps={{
